@@ -28,19 +28,19 @@
 	</head>
 
 	<body>
-		<div class="main">
+		<main class="main">
 			<div class="row">
 				<!-- Main navigation -->
-				<div class="col-2">
+				<article class="col-2">
 					<p>Nav goes here</p>
-				</div>
+				</article>
 
 				<!-- Page Content -->
-				<div class="col">
+				<article class="col">
 					<h1>Class Name</h1>
 
 					<!-- Class navar goes here -->
-					<ul class="nav nav-tabs">
+					<ul class="nav nav-tabs col-9">
 						<li class="nav-item">
 							<a
 								class="nav-link active"
@@ -65,60 +65,52 @@
 						</li>
 					</ul>
 
-					<div class="row">
-						<div class="col-9">
-							<div class="card">
-								<div class="card-header">
+					<article class="row col-9 card">
+						<header class="card-header">
+							<h3>Assignment Name</h3>
+						</header>
+
+						<section class="card-body">
+							<section class="card card-body">
+								<div class="row">
+									<div class="col">
+										<p><b>Due: </b>10/31/22 8:00pm</p>
+									</div>
+
+									<div class="col">
+										<p><b>Priority: </b>Medium</p>
+									</div>
+								</div>
+							</section>
+
+							<section class="card card-body">
+								Assignment details go here.
+							</section>
+
+							<section class="card">
+								<header class="card-header">
+									<h5>Submission</h5>
+								</header>
+
+								<section class="card-body">
+									<textarea rows=5 cols=60></textarea>
+
 									<div class="row">
-										<div class="col"><h3>Assignment Name</h3></div>
-									</div>
-								</div>
+										<div class="col">
+											<button class="btn btn-secondary">Upload files</button>
+										</div>
 
-								<div class="card-body">
-									<div class="card">
-										<div class="card-body">
-											<div class="row">
-												<div class="col">
-													<p><b>Due: </b>10/31/22 8:00pm</p>
-												</div>
-												<div class="col">
-													<p><b>Priority: </b>Medium</p>
-												</div>
-											</div>
+										<div class="col-auto">
+											<button class="btn btn-secondary">Submit</button>
 										</div>
 									</div>
 
-									<div class="card">
-										<div class="card-body">
-											Assignment details go here.
-										</div>
-									</div>
-
-									<div class="card">
-										<div class="card-header">
-											<div class="row">
-												<div class="col"><h5>Submission</h5></div>
-											</div>
-										</div>
-
-										<div class="card-body">
-											<textarea rows=5 cols=60></textarea>
-											<div class="row">
-												<div class="col">
-													<button class="btn btn-secondary">Upload files</button>
-												</div>
-												<div class="col-auto">
-													<button class="btn btn-secondary">Submit</button>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+								</section>
+							</section>
+						</section>
+					</article>
+				</article>
 			</div>
-		</div>
+		</main>
 	</body>
 </html>
