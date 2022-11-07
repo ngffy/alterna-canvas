@@ -1,11 +1,120 @@
 <!DOCTYPE html>
 <html lang="en-US">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width">
-		<title>Home</title>
-	</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Home</title>
 
-	<body>
-	</body>
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bootstrap Font Icon CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <main class="main">
+      <div class="row">
+        <!-- Main navigation -->
+        <nav class="col-2 bg-light">
+          <div class="sidebar-header">
+            <h2>Alterna-Canvas</h2>
+          </div>
+          <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item home-button">
+              <a class="nav-link active"><span class="bi-house"></span> Home</a>
+            </li>
+            <hr />
+            <li class="nav-item">
+              <a class="nav-link link-dark" href="">Computer Graphics</a>
+            </li>
+            <hr />
+            <li class="nav-item">
+              <a class="nav-link link-dark" href="">Senior Design</a>
+            </li>
+            <hr />
+            <li class="nav-item">
+              <a class="nav-link link-dark" href="">UI</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Page Content -->
+        <div class="col">
+          <section class="home-snapshot">
+            <article class="col">
+              <section class="card">
+                <header class="card-header">
+                  <h3>To-Do List</h3>
+                </header>
+
+                <section class="card-body">
+                  <ol>
+                    <li>
+                      <input type="checkbox" id="item1" />
+                      <label for="item1" contenteditable="true">Edit me</label>
+                    </li>
+                    <li>
+                      <input type="checkbox" id="item2" />
+                      <label for="item2" contenteditable="true">Edit me</label>
+                    </li>
+                    <li>
+                      <input type="checkbox" id="item3" />
+                      <label for="item3" contenteditable="true">Edit me</label>
+                    </li>
+                    <li>
+                      <input type="checkbox" id="item4" />
+                      <label for="item4" contenteditable="true">Edit me</label>
+                    </li>
+                  </ol>
+                </section>
+              </section>
+
+              <section class="card">
+                <header class="card-header">
+                  <h3>Upcoming Assignments</h3>
+                </header>
+
+                <section class="card-body">
+                  <ol>
+                    <li>Assignment 1</li>
+                    <li>Assignment 2</li>
+                    <li>Assignment 3</li>
+                    <li>Assignment 4</li>
+                  </ol>
+                </section>
+              </section>
+            </article>
+
+            <article class="col calendar">
+              <calendar class="row">
+                <day class="col">day</day>
+                <day class="col">day</day>
+                <day class="col">day</day>
+                <day class="col">day</day>
+                <day class="col">day</day>
+                <day class="col">day</day>
+                <day class="col">day</day>
+              </calendar>
+            </article>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
