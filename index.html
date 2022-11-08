@@ -28,395 +28,360 @@
     <link href="css/calendar.css" rel="stylesheet" />
   </head>
 
-  <body>
-    <main class="main row">
-      <!-- Main navigation -->
-      <nav class="col-2 bg-light">
-        <div class="sidebar-header">
-          <h2>Alterna-Canvas</h2>
-        </div>
-        <ul class="nav nav-pills flex-column mb-auto">
-          <li class="nav-item home-button">
-            <a class="nav-link active"><span class="bi-house"></span> Home</a>
-          </li>
-          <hr />
-          <li class="nav-item">
-            <a class="nav-link link-dark" href="">Computer Graphics</a>
-          </li>
-          <hr />
-          <li class="nav-item">
-            <a class="nav-link link-dark" href="">Senior Design</a>
-          </li>
-          <hr />
-          <li class="nav-item">
-            <a class="nav-link link-dark" href="">UI</a>
-          </li>
-        </ul>
-      </nav>
+  <body class="main row">
+    <!-- Main navigation -->
+    <nav class="col-2 bg-light h-100">
+      <header class="sidebar-header">
+        <h2>Alterna-Canvas</h2>
+      </header>
 
-      <!-- Page Content -->
-      <div class="container col">
-        <section class="row home-snapshot">
-          <article class="col-4">
-            <section class="card">
-              <header class="card-header">
-                <h3>To-Do List</h3>
-              </header>
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item home-button">
+          <a class="nav-link active"><span class="bi-house"></span> Home</a>
+        </li>
+        <hr />
+        <li class="nav-item">
+          <a class="nav-link link-dark" href="">Computer Graphics</a>
+        </li>
+        <hr />
+        <li class="nav-item">
+          <a class="nav-link link-dark" href="">Senior Design</a>
+        </li>
+        <hr />
+        <li class="nav-item">
+          <a class="nav-link link-dark" href="">UI</a>
+        </li>
+      </ul>
+    </nav>
 
-              <section class="card-body">
-                <ol>
-                  <li>
-                    <input type="checkbox" id="item1" />
-                    <label for="item1" contenteditable="true">Edit me</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" id="item2" />
-                    <label for="item2" contenteditable="true">Edit me</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" id="item3" />
-                    <label for="item3" contenteditable="true">Edit me</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" id="item4" />
-                    <label for="item4" contenteditable="true">Edit me</label>
-                  </li>
-                </ol>
-              </section>
+    <!-- Page Content -->
+    <div class="container col">
+      <section class="row home-snapshot">
+        <article class="d-flex flex-column col-4 h-100">
+          <section class="card flex-fill">
+            <header class="card-header">
+              <h3>To-Do List</h3>
+            </header>
+
+            <section class="card-body">
+              <ol>
+                <li>
+                  <input type="checkbox" id="item1" />
+                  <label for="item1" contenteditable="true">Edit me</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="item2" />
+                  <label for="item2" contenteditable="true">Edit me</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="item3" />
+                  <label for="item3" contenteditable="true">Edit me</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="item4" />
+                  <label for="item4" contenteditable="true">Edit me</label>
+                </li>
+              </ol>
             </section>
+          </section>
 
-            <section class="card">
-              <header class="card-header">
-                <h3>Upcoming Assignments</h3>
-              </header>
+          <section class="card flex-fill">
+            <header class="card-header">
+              <h3>Upcoming Assignments</h3>
+            </header>
 
-              <section class="card-body">
-                <ol>
-                  <li>Assignment 1</li>
-                  <li>Assignment 2</li>
-                  <li>Assignment 3</li>
-                  <li>Assignment 4</li>
-                </ol>
-              </section>
+            <section class="card-body">
+              <ol>
+                <li>Assignment 1</li>
+                <li>Assignment 2</li>
+                <li>Assignment 3</li>
+                <li>Assignment 4</li>
+              </ol>
             </section>
-          </article>
+          </section>
+        </article>
 
-          <article class="col calendar">
-            <!-- <calendar class="row h-100">
-              <day class="col">day</day>
-              <day class="col">day</day>
-              <day class="col">day</day>
-              <day class="col">day</day>
-              <day class="col">day</day>
-              <day class="col">day</day>
-              <day class="col">day</day>
-            </calendar> -->
-            <table>
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>Mon 10</th>
-                  <th>Tues 11</th>
-                  <th>Wed 12</th>
-                  <th>Thurs 13</th>
-                  <th>Fri 14</th>
-                  <th>Sat 15</th>
-                  <th>Sun 16</th>
-                </tr>
-              </thead>
+        <article class="d-flex flex-column col h-100">
+          <section class="card calendar flex-fill h-50">
+            <header class="card-header">
+              <h3>October 2022 Calendar</h3>
+            </header>
 
-              <tbody>
-                <tr>
-                  <td class="headcol"></td>
-                  <td></td>
-                  <td></td>
-                  <td class="past"></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol">6:00</td>
-                  <td></td>
-                  <td></td>
-                  <td class="past"></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol"></td>
-                  <td></td>
-                  <td></td>
-                  <td class="past"></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol">7:00</td>
-                  <td></td>
-                  <td></td>
-                  <td class="past"></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol"></td>
-                  <td></td>
-                  <td></td>
-                  <td class="now"></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol">8:00</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol"></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <div class="event double">
-                      <input
-                        id="check"
-                        type="checkbox"
-                        class="checkbox"
-                      /><label for="check"></label>8:30–9:30 Yoga
-                    </div>
-                  </td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol">9:00</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol"></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol">10:00</td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <div class="event double">
-                      <input
-                        id="check"
-                        type="checkbox"
-                        class="checkbox"
-                      /><label for="check"></label>10:00–11:00 Meeting
-                    </div>
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol"></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol">11:00</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol"></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol">12:00</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol"></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol">13:00</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol"></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol">14:00</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol"></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol">15:00</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol"></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol">16:00</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol"></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol">17:00</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol"></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol">18:00</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td class="headcol"></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-          </article>
-        </section>
-      </div>
-    </main>
+            <div class="cal-body">
+              <table class="card-body">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Mon 10</th>
+                    <th>Tues 11</th>
+                    <th>Wed 12</th>
+                    <th class="today">Thurs 13</th>
+                    <th>Fri 14</th>
+                    <th>Sat 15</th>
+                    <th>Sun 16</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td class="headcol"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="past today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="past today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol">2am</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="past today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="past today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol">4am</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="past today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="past today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol">6am</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="past today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="past today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol">8am</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol">10am</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="today">
+                      <div class="event double">
+                        <input
+                          id="check"
+                          type="checkbox"
+                          class="checkbox"
+                        /><label for="check"></label>10:00–11:00 Meeting
+                      </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol">12pm</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol">2pm</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol">4pm</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol">6pm</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol">8pm</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol">10pm</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="headcol"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="today"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card-footer d-flex justify-content-between">
+              <button class="btn btn-primary">Prev Week</button>
+              <button class="btn btn-primary">Next Week</button>
+            </div>
+          </section>
+        </article>
+      </section>
+    </div>
   </body>
 </html>
