@@ -27,11 +27,12 @@ function getClassModule(module_num) {
   document.getElementById("main-content").innerHTML = info_html;
 }
 
-function getClassSyllabus() {
+async function getClassSyllabus(path) {
   // Function to retrieve class syllabus info and load it into template
+	syllabus = await fetch(path);
 
   // Read in correct class syllabus
-  info_html = "";
+  info_html = await syllabus.text();
 
   // Put info into main content section of template
   document.getElementById("main-content").innerHTML = info_html;
