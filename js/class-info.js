@@ -52,8 +52,16 @@ function resetActiveNav(activeNav) {
 	document.getElementById(activeNav).classList.add("active");
 }
 
+async function displayAnnouncements() {
+	announcements = await fetch("templates/announcements.html");
+	html = await announcements.text();
+
+	document.getElementById("main-content").innerHTML = html;
+	resetActiveNav("nav-announcements");
+}
+
 async function displayClassHome() {
-	home = await fetch("class-home.html");
+	home = await fetch("templates/class-home.html");
 	html = await home.text();
 
 	document.getElementById("main-content").innerHTML = html;
