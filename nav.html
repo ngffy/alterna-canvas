@@ -3,18 +3,18 @@
 </div>
 <ul class="nav nav-pills flex-column mb-auto">
 	<li class="nav-item home-button">
-		<a class="nav-link" href="index.html"><span class="bi-house"></span> Home</a>
+		<a class="nav-link" href="index.html" onclick='sessionStorage.setItem("selectedPage", null)'><span class="bi-house"></span> Home</a>
 	</li>
 	<hr />
 	<li class="nav-item">
-		<a id="foo" class="nav-link" href="class-home.html">Computer Graphics</a>
+		<a id="foo" class="nav-link" href="class-home.html" onclick='sessionStorage.setItem("selectedPage", "Computer Graphics")'>Computer Graphics</a>
 	</li>
 	<hr />
 	<li class="nav-item">
-		<a class="nav-link" href="class-home.html">Senior Design</a>
+		<a class="nav-link" href="class-home.html" onclick='sessionStorage.setItem("selectedPage", "Senior Design")'>Senior Design</a>
 	</li>
 	<hr />
 	<li class="nav-item">
-		<a class="nav-link" href="class-home.html">UI</a>
+		<a class="nav-link" href="class-home.html" onclick='sessionStorage.setItem("selectedPage", "UI")'>UI</a>
 	</li>
 </ul>
