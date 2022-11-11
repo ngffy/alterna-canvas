@@ -12,13 +12,13 @@ function initializePage() {
   }
 
   if (page == "index.html") {
-    sessionStorage.setItem("selectedClass", null);
-  } else if (sessionStorage.getItem("selectedClass") !== null) {
+    sessionStorage.setItem("selectedPage", null);
+  } else if (sessionStorage.getItem("selectedPage") !== null) {
     loadClass();
   }
 
 	if (sessionStorage.getItem("getSyllabus")) {
-		className = sessionStorage.getItem("selectedClass");
+		className = sessionStorage.getItem("selectedPage");
 		path = "course-data/" + className.toLowerCase().replace(" ", "_") + "/course_info/syllabus.html";
 		getClassSyllabus(path);
 	}
@@ -31,7 +31,7 @@ async function getClassModule(module_num) {
 		module_num_str = "0" + module_num_str
 	}
 
-	className = sessionStorage.getItem("selectedClass");
+	className = sessionStorage.getItem("selectedPage");
 	path = "course-data/" + className.toLowerCase().replace(" ", "_") + "/course_info/pages/" + module_num_str + ".html";
 	page = await fetch(path);
 
@@ -54,13 +54,13 @@ async function getClassSyllabus(path) {
 }
 
 function loadClass() {
-  className = sessionStorage.getItem("selectedClass");
+  className = sessionStorage.getItem("selectedPage");
 
   document.getElementById("class_name").innerHTML = className;
 }
 
 function selectClass(className) {
-  sessionStorage.setItem("selectedClass", className);
+  sessionStorage.setItem("selectedPage", className);
 }
 
 async function addNav() {
@@ -68,4 +68,11 @@ async function addNav() {
 	content = await nav.text();
 
 	document.getElementById("nav").innerHTML = content;
+
+	page = sessionStorage.getItem("selectedPage");
+	if (page === "null") {
+		document.getElementById("Home").classList.add("active");
+	} else {
+		document.getElementById(page).classList.add("active");
+	}
 }
