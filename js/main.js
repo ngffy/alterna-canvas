@@ -1,6 +1,7 @@
 initializePage();
 
 function initializePage() {
+	addNav();
   // Get current page name and store in local storage
   let path = window.location.pathname;
   let page = "";
@@ -23,7 +24,7 @@ function initializePage() {
 	}
 }
 
-function getClassModule(module_num) {
+async function getClassModule(module_num) {
   // Function to retrieve specified class module info and load it into template
 	module_num_str = String(module_num)
 	if (module_num_str.length === 1) {
@@ -60,4 +61,11 @@ function loadClass() {
 
 function selectClass(className) {
   sessionStorage.setItem("selectedClass", className);
+}
+
+async function addNav() {
+	nav = await fetch("nav.html");
+	content = await nav.text();
+
+	document.getElementById("nav").innerHTML = content;
 }
