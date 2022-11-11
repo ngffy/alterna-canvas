@@ -69,6 +69,11 @@ function displayAnnouncements() {
 	resetActiveNav("nav-announcements");
 }
 
+function displayAssignments() {
+	fillMainContent("templates/assignment-groups.html");
+	resetActiveNav("nav-assignments");
+}
+
 function displayGrades() {
 	fillMainContent("templates/grades.html");
 	resetActiveNav("nav-grades");
