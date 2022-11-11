@@ -44,11 +44,12 @@
             <span
               class="nav-link"
               aria-current="page"
+	      onclick='displayClassHome()'
               >Home</span
             >
           </li>
           <li class="nav-item">
-            <span class="nav-link" onclick='sessionStorage.setItem("getSyllabus", true)'>Syllabus</span>
+            <span class="nav-link" onclick='displayClassSyllabus()'>Syllabus</span>
           </li>
           <li class="nav-item dropdown">
             <span
@@ -68,6 +69,7 @@
 				<!-- To be filled by JS -->
 				</article>
 		</div>
-    <script src="js/main.js"></script>
+    <script src="js/class-info.js"></script>
+    <script src="js/nav.js"></script>
   </body>
 </html>
