@@ -25,9 +25,17 @@ function initializePage() {
 
 function getClassModule(module_num) {
   // Function to retrieve specified class module info and load it into template
+	module_num_str = String(module_num)
+	if (module_num_str.length === 1) {
+		module_num_str = "0" + module_num_str
+	}
+
+	className = sessionStorage.getItem("selectedClass");
+	path = "course-data/" + className.toLowerCase().replace(" ", "_") + "/course_info/pages/" + module_num_str + ".html";
+	page = await fetch(path);
 
   // Read in correct class module
-  info_html = "";
+  info_html = await page.text();
 
   // Put info into main content section of template
   document.getElementById("main-content").innerHTML = info_html;
