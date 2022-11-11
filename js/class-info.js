@@ -52,30 +52,28 @@ function resetActiveNav(activeNav) {
 	document.getElementById(activeNav).classList.add("active");
 }
 
-async function displayAnnouncements() {
-	announcements = await fetch("templates/announcements.html");
-	html = await announcements.text();
+async function fillMainContent(path) {
+	file = await fetch(path);
+	html = await file.text();
 
 	document.getElementById("main-content").innerHTML = html;
-	resetActiveNav("nav-announcements");
 }
 
-async function displayClassHome() {
-	home = await fetch("templates/class-home.html");
-	html = await home.text();
-
-	document.getElementById("main-content").innerHTML = html;
+function displayClassHome() {
+	fillMainContent("templates/class-home.html");
 	resetActiveNav("nav-home");
 }
 
-async function displayClassSyllabus() {
+function displayAnnouncements() {
+	fillMainContent("templates/announcements.html");
+	resetActiveNav("nav-announcements");
+}
+
+function displayClassSyllabus() {
 	className = sessionStorage.getItem("selectedClass");
 	path = "course-data/" + className.toLowerCase().replace(" ", "_") + "/course_info/syllabus.html";
 
-	syllabus = await fetch(path);
-	html = await syllabus.text();
-
-	document.getElementById("main-content").innerHTML = html;
+	fillMainContent(path)
 	resetActiveNav("nav-syllabus");
 }
 
