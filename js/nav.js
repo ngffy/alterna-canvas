@@ -7,7 +7,7 @@ async function addNav() {
 	document.getElementById("nav").innerHTML = content;
 
 	page = sessionStorage.getItem("selectedClass");
-	if (page === "null") {
+	if (String(page) === "null") {
 		document.getElementById("Home").classList.add("active");
 	} else {
 		document.getElementById(page).classList.add("active");
