@@ -28,31 +28,13 @@
     <link href="css/calendar.css" rel="stylesheet" />
   </head>
 
-  <body class="main row">
-    <!-- Main navigation -->
-    <nav class="col-2 bg-light h-100">
-      <header class="sidebar-header">
-        <h2>Alterna-Canvas</h2>
-      </header>
-
-      <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item home-button">
-          <a class="nav-link active"><span class="bi-house"></span> Home</a>
-        </li>
-        <hr />
-        <li class="nav-item">
-          <a class="nav-link link-dark" href="">Computer Graphics</a>
-        </li>
-        <hr />
-        <li class="nav-item">
-          <a class="nav-link link-dark" href="">Senior Design</a>
-        </li>
-        <hr />
-        <li class="nav-item">
-          <a class="nav-link link-dark" href="">UI</a>
-        </li>
-      </ul>
-    </nav>
+  <body>
+    <main class="main">
+      <div class="row">
+        <!-- Main navigation -->
+	<nav class="col-2 bg-light" id="nav">
+	<!-- Defined in nav.html, filled by JS -->
+	</nav>
 
     <!-- Page Content -->
     <div class="container col">
@@ -193,5 +175,9 @@
         </article>
       </section>
     </div>
+
+      </div>
+    </main>
+    <script src="js/nav.js"></script>
   </body>
 </html>
