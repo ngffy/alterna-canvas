@@ -15,6 +15,12 @@ function initializePage() {
   } else if (sessionStorage.getItem("selectedClass") !== null) {
     loadClass();
   }
+
+	if (sessionStorage.getItem("getSyllabus")) {
+		className = sessionStorage.getItem("selectedClass");
+		path = "course-data/" + className.toLowerCase().replace(" ", "_") + "/course_info/syllabus.html";
+		getClassSyllabus(path);
+	}
 }
 
 function getClassModule(module_num) {
