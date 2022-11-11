@@ -69,6 +69,11 @@ function displayAnnouncements() {
 	resetActiveNav("nav-announcements");
 }
 
+function displayGrades() {
+	fillMainContent("templates/grades.html");
+	resetActiveNav("nav-grades");
+}
+
 function displayClassSyllabus() {
 	className = sessionStorage.getItem("selectedClass");
 	path = "course-data/" + className.toLowerCase().replace(" ", "_") + "/course_info/syllabus.html";
