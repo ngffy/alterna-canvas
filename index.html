@@ -57,7 +57,7 @@
     <!-- Page Content -->
     <div class="container col">
       <section class="row home-snapshot">
-        <article class="d-flex flex-column col-4 h-100">
+        <article class="d-flex flex-column col-3 h-100">
           <section class="card flex-fill">
             <header class="card-header">
               <h3>To-Do List</h3>
@@ -107,272 +107,82 @@
               <h3>October 2022 Calendar</h3>
             </header>
 
-            <div class="cal-body">
-              <table class="card-body">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>Mon 10</th>
-                    <th>Tues 11</th>
-                    <th>Wed 12</th>
-                    <th class="today">Thurs 13</th>
-                    <th>Fri 14</th>
-                    <th>Sat 15</th>
-                    <th>Sun 16</th>
-                  </tr>
-                </thead>
+            <div class="cal-body card-body row text-center">
+              <div class="col d-flex flex-column day">
+                <h4 class="day-header">Mon 10</h4>
+                <section class="day-info flex-fill past"></section>
+              </div>
+              <div class="col d-flex flex-column day">
+                <h4 class="day-header">Tues 11</h4>
+                <section class="day-info flex-fill past"></section>
+              </div>
+              <div class="col d-flex flex-column day">
+                <h4 class="day-header">Wed 12</h4>
+                <section class="day-info flex-fill past"></section>
+              </div>
+              <div class="col d-flex flex-column day">
+                <h4 class="day-header">Thurs 13</h4>
+                <section class="day-info flex-fill">
+                  <div class="card bg-light">
+                    <div class="card-body">
+                      Assignment 1
+                      <hr>
+                      11:59pm
+                    </div>
+                  </div>
+                  <div class="card bg-light">
+                    <div class="card-body complete">
+                      Assignment 2
+                      <hr>
+                      11:59pm
+                    </div>
+                  </div>
+                  <div class="card bg-light">
+                    <div class="card-body">
+                      Assignment 3
+                      <hr>
+                      11:59pm
+                    </div>
+                  </div>
+                  <div class="card bg-light">
+                    <div class="card-body">
+                      Assignment 4
+                      <hr>
+                      11:59pm
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="col d-flex flex-column day">
+                <h4 class="day-header">Fri 14</h4>
+                <section class="day-info flex-fill"></section>
+              </div>
+              <div class="col d-flex flex-column day">
+                <h4 class="day-header">Sat 15</h4>
+                <section class="day-info flex-fill"></section>
+              </div>
+              <div class="col d-flex flex-column day">
+                <h4 class="day-header">Sun 16</h4>
+                <section class="day-info flex-fill"></section>
+              </div>
+            </div>
 
-                <tbody>
-                  <tr>
-                    <td class="headcol"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="past today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="past today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol">2am</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="past today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="past today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol">4am</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="past today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="past today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol">6am</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="past today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="past today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol">8am</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol">10am</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="today">
-                      <div class="event double">
-                        <input
-                          id="check"
-                          type="checkbox"
-                          class="checkbox"
-                        /><label for="check"></label>10:00–11:00 Meeting
-                      </div>
-                    </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol">12pm</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol">2pm</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol">4pm</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol">6pm</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol">8pm</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol">10pm</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="headcol"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="today"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="card-footer d-flex justify-content-between">
+              <h4>Display Classes: </h4>
+
+              <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                <label class="btn btn-outline-primary" for="btnradio1">All</label>
+              
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnradio2">Computer Graphics</label>
+              
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnradio3">Senior Design</label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnradio4">UI</label>
+              </div>
             </div>
 
             <div class="card-footer d-flex justify-content-between">
