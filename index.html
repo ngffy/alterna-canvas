@@ -26,158 +26,197 @@
 
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/calendar.css" rel="stylesheet" />
+    <link href="css/todo.css" rel="stylesheet" />
   </head>
 
   <body>
     <main class="main">
       <div class="row">
         <!-- Main navigation -->
-	<nav class="col-2 bg-light" id="nav">
-	<!-- Defined in nav.html, filled by JS -->
-	</nav>
+        <nav class="col-2 bg-light" id="nav">
+        <!-- Defined in nav.html, filled by JS -->
+        </nav>
 
-    <!-- Page Content -->
-    <div class="container col">
-      <section class="row home-snapshot">
-        <article class="d-flex flex-column col-3 h-100">
-          <section class="card flex-fill">
-            <header class="card-header">
-              <h3>To-Do List</h3>
-            </header>
+        <!-- Page Content -->
+        <div class="container col">
+          <section class="row home-snapshot">
+            <article class="d-flex flex-column col-4 h-100">
+              <section class="todo card flex-fill">
+                <header class="card-header">
+                  <h3>To-Do List</h3>
+                </header>
 
-            <section class="card-body">
-              <ol>
-                <li>
-                  <input type="checkbox" id="item1" />
-                  <label for="item1" contenteditable="true">Edit me</label>
-                </li>
-                <li>
-                  <input type="checkbox" id="item2" />
-                  <label for="item2" contenteditable="true">Edit me</label>
-                </li>
-                <li>
-                  <input type="checkbox" id="item3" />
-                  <label for="item3" contenteditable="true">Edit me</label>
-                </li>
-                <li>
-                  <input type="checkbox" id="item4" />
-                  <label for="item4" contenteditable="true">Edit me</label>
-                </li>
-              </ol>
-            </section>
-          </section>
+                <section class="card-body">
+                  <ul class="list-group">
+                    <div id="todo-list"></div>
 
-          <section class="card flex-fill">
-            <header class="card-header">
-              <h3>Upcoming Assignments</h3>
-            </header>
-
-            <section class="card-body">
-              <ol>
-                <li>Assignment 1</li>
-                <li>Assignment 2</li>
-                <li>Assignment 3</li>
-                <li>Assignment 4</li>
-              </ol>
-            </section>
-          </section>
-        </article>
-
-        <article class="d-flex flex-column col h-100">
-          <section class="card calendar flex-fill h-50">
-            <header class="card-header">
-              <h3>October 2022 Calendar</h3>
-            </header>
-
-            <div class="cal-body card-body row text-center">
-              <div class="col d-flex flex-column day">
-                <h4 class="day-header">Mon 10</h4>
-                <section class="day-info flex-fill past"></section>
-              </div>
-              <div class="col d-flex flex-column day">
-                <h4 class="day-header">Tues 11</h4>
-                <section class="day-info flex-fill past"></section>
-              </div>
-              <div class="col d-flex flex-column day">
-                <h4 class="day-header">Wed 12</h4>
-                <section class="day-info flex-fill past"></section>
-              </div>
-              <div class="col d-flex flex-column day">
-                <h4 class="day-header">Thurs 13</h4>
-                <section class="day-info flex-fill">
-                  <div class="card bg-light">
-                    <div class="card-body">
-                      Assignment 1
-                      <hr>
-                      11:59pm
-                    </div>
-                  </div>
-                  <div class="card bg-light">
-                    <div class="card-body complete">
-                      Assignment 2
-                      <hr>
-                      11:59pm
-                    </div>
-                  </div>
-                  <div class="card bg-light">
-                    <div class="card-body">
-                      Assignment 3
-                      <hr>
-                      11:59pm
-                    </div>
-                  </div>
-                  <div class="card bg-light">
-                    <div class="card-body">
-                      Assignment 4
-                      <hr>
-                      11:59pm
-                    </div>
-                  </div>
+                    <li class="list-group-item d-flex flex-row justify-content-between">
+                      <div>
+                        <input type="text" placeholder="Add new item" class="form-control" id="new-item-input">
+                      </div>
+                      <div>
+                        <span onclick="addItem()" class="bi-plus-circle btn btn-primary"></span>
+                      </div>
+                    </li>
+                  </ul>
                 </section>
-              </div>
-              <div class="col d-flex flex-column day">
-                <h4 class="day-header">Fri 14</h4>
-                <section class="day-info flex-fill"></section>
-              </div>
-              <div class="col d-flex flex-column day">
-                <h4 class="day-header">Sat 15</h4>
-                <section class="day-info flex-fill"></section>
-              </div>
-              <div class="col d-flex flex-column day">
-                <h4 class="day-header">Sun 16</h4>
-                <section class="day-info flex-fill"></section>
-              </div>
-            </div>
 
-            <div class="card-footer d-flex justify-content-between">
-              <h4>Display Classes: </h4>
+                <section class="card-footer" id="progress"></section>
+              </section>
 
-              <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="btnradio1">All</label>
-              
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                <label class="btn btn-outline-primary" for="btnradio2">Computer Graphics</label>
-              
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                <label class="btn btn-outline-primary" for="btnradio3">Senior Design</label>
+              <section class="card flex-fill">
+                <header class="card-header">
+                  <h3>Upcoming Assignments</h3>
+                </header>
 
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-                <label class="btn btn-outline-primary" for="btnradio4">UI</label>
-              </div>
-            </div>
+                <section class="card-body">
+                  <ol>
+                    <li>Assignment 1</li>
+                    <li>Assignment 2</li>
+                    <li>Assignment 3</li>
+                    <li>Assignment 4</li>
+                  </ol>
+                </section>
+              </section>
+            </article>
 
-            <div class="card-footer d-flex justify-content-between">
-              <button class="btn btn-primary">Prev Week</button>
-              <button class="btn btn-primary">Next Week</button>
-            </div>
+            <article class="d-flex flex-column col h-100">
+              <section class="card calendar flex-fill h-50">
+                <header class="card-header">
+                  <h3>October 2022 Calendar</h3>
+                </header>
+
+                <div class="cal-body card-body row text-center">
+                  <div class="col d-flex flex-column day">
+                    <h4 class="day-header">Mon 10</h4>
+                    <section class="day-info flex-fill past"></section>
+                  </div>
+                  <div class="col d-flex flex-column day">
+                    <h4 class="day-header">Tues 11</h4>
+                    <section class="day-info flex-fill past"></section>
+                  </div>
+                  <div class="col d-flex flex-column day">
+                    <h4 class="day-header">Wed 12</h4>
+                    <section class="day-info flex-fill past"></section>
+                  </div>
+                  <div class="col d-flex flex-column day">
+                    <h4 class="day-header">Thurs 13</h4>
+                    <section class="day-info flex-fill">
+                      <div class="card bg-light">
+                        <div class="card-body">
+                          Assignment 1
+                          <hr>
+                          11:59pm
+                        </div>
+                      </div>
+                      <div class="card bg-light">
+                        <div class="card-body complete">
+                          Assignment 2
+                          <hr>
+                          11:59pm
+                        </div>
+                      </div>
+                      <div class="card bg-light">
+                        <div class="card-body">
+                          Assignment 3
+                          <hr>
+                          11:59pm
+                        </div>
+                      </div>
+                      <div class="card bg-light">
+                        <div class="card-body">
+                          Assignment 4
+                          <hr>
+                          11:59pm
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="col d-flex flex-column day">
+                    <h4 class="day-header">Fri 14</h4>
+                    <section class="day-info flex-fill"></section>
+                  </div>
+                  <div class="col d-flex flex-column day">
+                    <h4 class="day-header">Sat 15</h4>
+                    <section class="day-info flex-fill"></section>
+                  </div>
+                  <div class="col d-flex flex-column day">
+                    <h4 class="day-header">Sun 16</h4>
+                    <section class="day-info flex-fill"></section>
+                  </div>
+                </div>
+
+                <div class="card-footer d-flex justify-content-between align-items-baseline">
+                  <div>
+                    <label for="btn-group" class="form-label">Display Classes:</label>
+
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="btn-group">
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                      <label class="btn btn-outline-primary" for="btnradio1">All</label>
+                    
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                      <label class="btn btn-outline-primary" for="btnradio2">Computer Graphics</label>
+                    
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                      <label class="btn btn-outline-primary" for="btnradio3">Senior Design</label>
+
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+                      <label class="btn btn-outline-primary" for="btnradio4">UI</label>
+                    </div>
+
+                  </div>
+
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Show To-Do List Items</label>
+                  </div>
+                </div>
+
+                <div class="card-footer d-flex justify-content-between">
+                  <button class="btn btn-primary">Prev Week</button>
+                  <button class="btn btn-primary">Next Week</button>
+                </div>
+              </section>
+            </article>
           </section>
-        </article>
-      </section>
-    </div>
+        </div>
 
       </div>
     </main>
+
+    <!-- To-Do Edit Modal -->
+    <div class="modal fade" id="editToDo" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <input type="text" class="form-control" id="edit-todo-title">
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <label class="form-label" for="due-date">Due Date:</label>
+            <div class="d-flex flex-row">
+              <input type="date" class="form-control" id="due-date">
+              <input type="time" class="form-control" id="due-time">
+            </div>
+            <br>
+
+            <label class="form-label" for="class">For Class:</label>
+            <select class="form-select" id="class">
+              <option selected>No Class</option>
+              <option>Computer Graphics</option>
+              <option>Senior Design</option>
+              <option>UI</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="save_edit" data-bs-dismiss="modal">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="js/nav.js"></script>
+    <script src="js/to-do.js"></script>
   </body>
 </html>

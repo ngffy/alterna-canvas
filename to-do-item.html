@@ -1,0 +1,10 @@
+<li class="list-group-item d-flex flex-row justify-content-between align-items-baseline">
+    <div>
+        <input class="form-check-input me-1" type="checkbox" id="idHere" onclick="toggleComplete('idHere')" checked>
+        <label for="idHere">labelHere</label>
+    </div>
+    <div>
+        <span class="bi-pencil btn btn-small btn-primary" data-bs-toggle="modal" data-bs-target="#editToDo" onclick="loadItemEdit('idHere')"></span>
+        <span class="bi-trash btn btn-primary" onclick="deleteItem('idHere')"></span>
+    </div>
+</li>
