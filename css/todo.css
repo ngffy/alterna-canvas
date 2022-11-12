@@ -4,3 +4,12 @@
     margin: 5px 0px;
     border-radius: 5px;
 }
+
+.todo .btn {
+    font-size: 18px;
+    padding: 4px 8px;
+}
+
+.new-item {
+    font-size: 16px;
+}
