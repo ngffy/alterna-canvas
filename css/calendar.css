@@ -12,20 +12,22 @@
 
 .day {
   padding: 0px;
+  background-color: rgb(221, 240, 241);
 }
 
 .day-header {
-  background-color: rgb(235, 235, 235);
-  border-top: 1px solid lightgray;
-  border-left: 1px solid lightgray;
-  border-right: 1px solid lightgray;
+  background-color: rgb(64, 88, 121);
+  color: white;
+  border-top: 1px solid rgb(44, 69, 103);
+  border-left: 1px solid rgb(44, 69, 103);
+  border-right: 1px solid rgb(44, 69, 103);
   margin: 0px;
   padding-bottom: 10px;
 }
 
 .day-info {
   padding: 5px;
-  border: 1px solid lightgray;
+  border: 1px solid rgb(44, 69, 103);
 }
 
 .day-info .card :hover{
@@ -34,5 +36,5 @@
 }
 
 .past {
-  background: rgb(230, 230, 230);
+  background: rgb(155, 188, 189);
 }
