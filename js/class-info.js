@@ -73,8 +73,240 @@ async function displayAnnouncements() {
 	resetActiveNav("nav-announcements");
 }
 
-function displayAssignments() {
-	fillMainContent("templates/assignment-groups.html");
+function assignmentDragHandler(ev) {
+	ev.dataTransfer.setData("text/plain", ev.target.id);
+	ev.dataTransfer.dropEffect = "move";
+}
+
+function dropHandler(ev) {
+	ev.preventDefault();
+	id = ev.dataTransfer.getData("text/plain");
+	if (ev.target.classList.contains("assignment-row")) {
+		card = document.getElementById(id);
+		ev.target.appendChild(card);
+		updateAssignmentGroup(id, ev.target.id);
+	}
+}
+
+function dragoverHandler(ev) {
+	ev.preventDefault();
+	ev.dataTransfer.dropEffect = "move";
+}
+
+async function getClassData() {
+	path = "course-data/" + getClassFolder() + "/data.txt";
+	file = await fetch(path);
+	data = await file.json();
+
+	return data;
+}
+
+async function updateAssignmentGroup(name, newGroup) {
+	data = await getClassData();
+
+	for (idx in data) {
+		obj = data[idx];
+		if (obj['title'] === name) {
+			sessionStorage.setItem(name, newGroup);
+		}
+	}
+}
+
+function updateAssignmentRowId(assignmentRow, id) {
+	assignmentRow.id = id;
+
+	for (idx in assignmentRow.childNodes) {
+		child = assignmentRow.childNodes[idx];
+		if (child.nodeName === "DIV") {
+			updateAssignmentGroup(child.id, id);
+		}
+	}
+}
+
+function addGroup(name) {
+	assignmentGroup = document.createElement("article");
+	assignmentGroup.classList.add("row", "col-9", "card")
+
+	header = document.createElement("header");
+	header.classList.add("card-header")
+	assignmentGroup.appendChild(header);
+
+	let h = document.createElement("h3");
+	h.setAttribute("contenteditable", "true");
+	h.innerHTML = name;
+	header.appendChild(h);
+
+	let assignmentRow = document.createElement("section");
+	assignmentRow.classList.add("card-body", "row", "assignment-row");
+	assignmentRow.id = name;
+	assignmentRow.addEventListener("drop", (ev) => dropHandler(ev));
+	assignmentRow.addEventListener("dragover", (ev) => dragoverHandler(ev));
+	assignmentGroup.appendChild(assignmentRow);
+
+	h.addEventListener("input", (e) => updateAssignmentRowId(assignmentRow, h.innerHTML));
+
+	assignmentGroupDiv = document.getElementById("groups");
+	assignmentGroupDiv.appendChild(assignmentGroup);
+
+	return assignmentRow;
+}
+
+function createAssignmentCard(name) {
+	div = document.createElement("div");
+	div.classList.add("col");
+
+	assignmentCard = document.createElement("section");
+	assignmentCard.classList.add("card", "card-body", "col");
+	assignmentCard.innerHTML = name;
+	div.appendChild(assignmentCard);
+
+	assignmentCard.addEventListener("click", () => displayAssignment(name));
+
+	div.setAttribute("draggable", "true");
+	div.addEventListener("dragstart", assignmentDragHandler);
+	div.id = name;
+
+	return div;
+}
+
+/*
+ * Return an object where each key is all the different assignment groups and
+ * the values are the objects representing the assignments within that group
+ */
+async function getAssignmentGroups() {
+	path = "course-data/" + className.toLowerCase().replace(" ", "_") + "/data.txt";
+	file = await fetch(path);
+	data = await file.json();
+
+	groups = {};
+
+	for (idx in data) {
+		obj = data[idx];
+		if (obj['type'] !== "assignment") {
+			continue;
+		}
+
+		group = sessionStorage.getItem(obj["title"]);
+
+		if (!(group in groups)) {
+			groups[group] = [];
+		}
+
+		groups[group].push(obj);
+	}
+
+	return groups;
+}
+
+async function displayAssignment(name) {
+	json_path = "course-data/" + getClassFolder() + "/data.txt";
+	file = await fetch(json_path);
+	data = await file.json();
+
+	for (idx in data) {
+		if (data[idx]['title'] === name) {
+			assignment = data[idx];
+			break;
+		}
+	}
+
+	let path = "course-data/" + getClassFolder() + "/" + assignment['folder'] + "/" + assignment["name"];
+
+	file = await fetch(path);
+	html = await file.text();
+
+	main = document.getElementById("main-content");
+	main.innerHTML = "";
+
+	assignmentCard = document.createElement("article");
+	assignmentCard.classList.add("row", "col-9", "card");
+	main.appendChild(assignmentCard);
+
+	header = document.createElement("header");
+	header.classList.add("card-header");
+	header.innerHTML = "<h3>" + assignment['title'] + "</h3>";
+	assignmentCard.appendChild(header);
+
+	assignmentBody = document.createElement("section");
+	assignmentBody.classList.add("card-body");
+	assignmentCard.appendChild(assignmentBody);
+
+	dueDate = document.createElement("section");
+	dueDate.classList.add("card", "card-body");
+	dueDate.innerHTML = "<b>Due:</b> " + assignment["end_or_due"];
+	assignmentBody.appendChild(dueDate);
+
+	details = document.createElement("section");
+	details.classList.add("card", "card-body");
+	details.innerHTML = html;
+	assignmentBody.appendChild(details);
+
+	submissionCard = document.createElement("section");
+	submissionCard.classList.add("card");
+	assignmentBody.appendChild(submissionCard);
+
+	submitHeader = document.createElement("header");
+	submitHeader.classList.add("card-header");
+	submitHeader.innerHTML = "Submission";
+	submissionCard.appendChild(submitHeader);
+
+	submissionBody = document.createElement("section");
+	submissionBody.classList.add("card-body");
+	submissionCard.appendChild(submissionBody);
+
+	textBox = document.createElement("textarea");
+	submissionBody.appendChild(textBox);
+
+	br = document.createElement("br");
+	submissionBody.appendChild(br);
+
+	uploadButton = document.createElement("button");
+	uploadButton.classList.add("btn", "btn-secondary");
+	uploadButton.innerHTML = "Upload files";
+	submissionBody.appendChild(uploadButton);
+
+	submitButton = document.createElement("button");
+	submitButton.classList.add("btn", "btn-primary");
+	submitButton.innerHTML = "Submit";
+	submissionBody.appendChild(submitButton);
+
+	resetActiveNav("nav-assignments");
+}
+
+/*
+ * Display HTML elements that organize class assignments into groups indicated
+ * by the student-group attribute in the class's json file
+ */
+async function displayAssignments() {
+	groups = await getAssignmentGroups();
+
+	main = document.getElementById("main-content");
+	main.innerHTML = "";
+	assignmentGroupDiv = document.createElement("div");
+	assignmentGroupDiv.id = "groups";
+	main.appendChild(assignmentGroupDiv);
+
+	addButton = document.createElement("button");
+	addButton.classList.add("btn", "btn-primary");
+	main.appendChild(addButton);
+	addButton.innerHTML = "Add Group";
+	addButton.addEventListener("click", () => {addGroup("Unnamed Group")});
+
+	for (group in groups) {
+		if (group === "null") {
+			assignmentRow = addGroup("Ungrouped");
+		} else {
+			assignmentRow = addGroup(group);
+		}
+
+		for (idx in groups[group]) {
+			assignment = groups[group][idx];
+
+			cardDiv = createAssignmentCard(assignment["title"]);
+			assignmentRow.appendChild(cardDiv);
+		}
+	}
+
 	resetActiveNav("nav-assignments");
 }
 
