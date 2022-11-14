@@ -41,13 +41,35 @@ async function fillMainContent(path) {
 	document.getElementById("main-content").innerHTML = html;
 }
 
-function displayClassHome() {
-	fillMainContent("templates/class-home.html");
+async function displayClassHome() {
+	file = await fetch("templates/class-home.html");
+	html = await file.text();
+
+	// Populate most recent announcement
+	let item = JSON.parse(sessionStorage.getItem("announcements"))[0];
+	html = html.replace("announcementHere", `<h5>${item.title}</h5><b>${item.date} ${item.time}</b><p>${item.text}</p>`)
+
+	
+	document.getElementById("main-content").innerHTML = html;
 	resetActiveNav("nav-home");
 }
 
-function displayAnnouncements() {
-	fillMainContent("templates/announcements.html");
+async function displayAnnouncements() {
+	file = await fetch("templates/announcements.html");
+	html = await file.text();
+
+	let announcements = JSON.parse(sessionStorage.getItem("announcements"));
+
+	announce_html = "";
+	for (let i = 0; i < announcements.length; i++) {
+		let item = announcements[i];
+
+		announce_html += `<section class="card"><header class="card-header"><h5>${item.title}</h5>From: ${item.name}</header><section class="card-body">${item.text}</section><section class="card-footer text-end">${item.date} ${item.time}</section></section>`
+	}
+
+	html = html.replace("announcementsHere", announce_html)
+
+	document.getElementById("main-content").innerHTML = html;
 	resetActiveNav("nav-announcements");
 }
 
@@ -170,6 +192,18 @@ function loadClass() {
 
   // Retrieve and store grading info for class
   getGradeWeighting();
+
+  // Retrieve and store announcements for class
+  getAnnouncements();
+}
+
+async function getAnnouncements() {
+	let path = 'course-data/' + getClassFolder() + "/course_info/announcements.json";
+    let file = await fetch(path);
+
+    let announcements = await file.json();
+
+	sessionStorage.setItem("announcements", JSON.stringify(announcements));
 }
 
 function getClassFolder() {
