@@ -57,13 +57,16 @@ function assignmentDragHandler(ev) {
 	ev.dataTransfer.dropEffect = "move";
 }
 
-function dropHandler(ev, el) {
+function dropHandler(ev) {
 	ev.preventDefault();
 	data = ev.dataTransfer.getData("text/html");
-	el.innerHTML += data;
+	console.log(ev.target);
+	if (ev.target.classList.contains("assignment-row")) {
+		ev.target.innerHTML += data;
+	}
 }
 
-function dragoverHandler(ev, el) {
+function dragoverHandler(ev) {
 	ev.preventDefault();
 	ev.dataTransfer.dropEffect = "move";
 }
@@ -74,20 +77,18 @@ function addGroup(name) {
 
 	header = document.createElement("header");
 	header.classList.add("card-header")
+	assignmentGroup.appendChild(header);
 
 	h = document.createElement("h3");
 	h.setAttribute("contenteditable", "true");
 	h.innerHTML = name;
-
-	assignmentGroup.appendChild(header);
 	header.appendChild(h);
 
 	assignmentRow = document.createElement("section");
-	assignmentRow.classList.add("card-body", "row");
+	assignmentRow.classList.add("card-body", "row", "assignment-row");
+	assignmentRow.addEventListener("drop", (ev) => dropHandler(ev));
+	assignmentRow.addEventListener("dragover", (ev) => dragoverHandler(ev));
 	assignmentGroup.appendChild(assignmentRow);
-
-	assignmentRow.addEventListener("drop", (ev) => dropHandler(ev, assignmentRow));
-	assignmentRow.addEventListener("dragover", (ev) => dragoverHandler(ev, assignmentRow));
 
 	assignmentGroupDiv = document.getElementById("groups");
 	assignmentGroupDiv.appendChild(assignmentGroup);
