@@ -69,7 +69,8 @@
         "end_or_due": "8/29/22",
         "module": "module1",
         "title": "Getting to know you",
-        "reference": "na"
+        "reference": "na",
+	"student-group": null
     },
     {
         "name": "module2",
@@ -224,7 +225,8 @@
         "end_or_due": "9/16/22",
         "module": "module3",
         "title": "Sketching practice",
-        "reference": "inclass_01.html,inclass_02.html,inclass_03.html,inclass_04.html"
+        "reference": "inclass_01.html,inclass_02.html,inclass_03.html,inclass_04.html",
+	"student-group": null
     },
     {
         "name": "assignment_03.html",
@@ -236,7 +238,8 @@
         "end_or_due": "9/26/22",
         "module": "module3",
         "title": "Project 1 check in",
-        "reference": "project1.html"
+        "reference": "project1.html",
+	"student-group": null
     },
     {
         "name": "module4",
@@ -358,7 +361,8 @@
         "end_or_due": "9/23/22",
         "module": "module4",
         "title": "Html and CSS practice",
-        "reference": "inclass_05.html,inclass_06.html,inclass_07.html"
+        "reference": "inclass_05.html,inclass_06.html,inclass_07.html",
+	"student-group": null
     },
     {
         "name": "module5",
@@ -479,7 +483,8 @@
         "end_or_due": "9/30/22",
         "module": "module5",
         "title": "Javascript practice",
-        "reference": "inclass_08.html,inclass_09.html,inclass_10.html"
+        "reference": "inclass_08.html,inclass_09.html,inclass_10.html",
+	"student-group": null
     },
     {
         "name": "assignment_06.html",
@@ -490,7 +495,8 @@
         "start_or_posted": "9/19/22",
         "end_or_due": "9/23/22",
         "module": "na",
-        "title": "Which smart object project 1"
+        "title": "Which smart object project 1",
+	"student-group": null
     },
     {
         "name": "module6",
@@ -632,7 +638,8 @@
         "end_or_due": "10/14/22",
         "module": "na",
         "title": "Project 1 implementation",
-        "reference": "project1.html,assignment_03.html"
+        "reference": "project1.html,assignment_03.html",
+	"student-group": null
     },
     {
         "name": "08.html",
@@ -644,6 +651,7 @@
         "end_or_due": "10/16/22",
         "module": "na",
         "title": "Project 1 documentation",
-        "reference": "project1.html,assignment_03.html,07.html"
+        "reference": "project1.html,assignment_03.html,07.html",
+	"student-group": null
     }
 ]

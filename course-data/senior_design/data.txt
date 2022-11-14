@@ -85,7 +85,8 @@
         "end_or_due": "8/29/22",
         "module": "module3",
         "title": "First assignment",
-        "reference": "na"
+        "reference": "na",
+	"student-group": null
     },
     {
         "name": "module4",
@@ -118,7 +119,8 @@
         "end_or_due": "8/29/22",
         "module": "module4",
         "title": "User profiles",
-        "reference": "na"
+        "reference": "na",
+	"student-group": null
     },
     {
         "name": "module5",
@@ -151,7 +153,8 @@
         "end_or_due": "8/29/22",
         "module": "module5",
         "title": "Tasks",
-        "reference": "na"
+        "reference": "na",
+	"student-group": null
     },
     {
         "name": "module6",
@@ -184,7 +187,8 @@
         "end_or_due": "8/29/22",
         "module": "module6",
         "title": "Timeline",
-        "reference": "na"
+        "reference": "na",
+	"student-group": null
     },
     {
         "name": "module7",
@@ -217,7 +221,8 @@
         "end_or_due": "8/29/22",
         "module": "module7",
         "title": "Project status update",
-        "reference": "na"
+        "reference": "na",
+	"student-group": null
     },
     {
         "name": "module8",
@@ -250,6 +255,7 @@
         "end_or_due": "8/29/22",
         "module": "module8",
         "title": "Project status update",
-        "reference": "na"
+        "reference": "na",
+	"student-group": null
     }
 ]

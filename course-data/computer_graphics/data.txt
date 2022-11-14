@@ -69,7 +69,8 @@
         "end_or_due": "8/29/22",
         "module": "module1",
         "title": "first assignment",
-        "reference": "na"
+        "reference": "na",
+	"student_group": null
     },
     {
         "name": "module2",
@@ -201,7 +202,8 @@
         "end_or_due": "9/9/22",
         "module": "module2",
         "title": "Linear algebra review",
-        "reference": "na"
+        "reference": "na",
+	"student_group": null
     },
     {
         "name": "module3",
@@ -321,7 +323,8 @@
         "end_or_due": "9/26/22",
         "module": "module3",
         "title": "Rasterization exercise",
-        "reference": "na"
+        "reference": "na",
+	"student_group": null
     },
     {
         "name": "module4",
@@ -429,7 +432,8 @@
         "end_or_due": "9/23/22",
         "module": "module4",
         "title": "Transformations exercise",
-        "reference": "na"
+        "reference": "na",
+	"student_group": null
     },
     {
         "name": "module5",
@@ -489,7 +493,8 @@
         "end_or_due": "9/30/22",
         "module": "module5",
         "title": "Projection exercises",
-        "reference": "na"
+        "reference": "na",
+	"student_group": null
     },
     {
         "name": "module6",
@@ -549,7 +554,8 @@
         "end_or_due": "10/5/22",
         "module": "module5",
         "title": "Texture mapping exercises",
-        "reference": "na"
+        "reference": "na",
+	"student_group": null
     },
     {
         "name": "module7",
@@ -597,7 +603,8 @@
         "end_or_due": "10/14/22",
         "module": "na",
         "title": "Color",
-        "reference": "na"
+        "reference": "na",
+	"student_group": null
     },
     {
         "name": "module8",
@@ -645,7 +652,8 @@
         "end_or_due": "10/26/22",
         "module": "module8",
         "title": "Light and shadow",
-        "reference": "na"
+        "reference": "na",
+	"student_group": null
     },
     {
         "name": "midterm.html",
