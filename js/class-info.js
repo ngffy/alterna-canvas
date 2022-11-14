@@ -72,11 +72,17 @@ function addGroup(name) {
 }
 
 function createAssignmentCard(name) {
-	assignmentCard = document.createElement("section");
-	assignmentCard.classList.add("card", "card-body");
-	assignmentCard.innerHTML = name;
+	div = document.createElement("div");
+	div.classList.add("col");
 
-	return assignmentCard;
+	assignmentCard = document.createElement("section");
+	assignmentCard.classList.add("card", "card-body", "col");
+	assignmentCard.innerHTML = name;
+	div.appendChild(assignmentCard);
+
+	div.setAttribute("draggable", "true");
+
+	return div;
 }
 
 /*
@@ -138,12 +144,8 @@ async function displayAssignments() {
 		for (idx in groups[group]) {
 			assignment = groups[group][idx];
 
-			div = document.createElement("div");
-			div.classList.add("col");
-			assignmentRow.appendChild(div);
-
-			assignmentCard = createAssignmentCard(assignment["title"]);
-			div.appendChild(assignmentCard);
+			cardDiv = createAssignmentCard(assignment["title"]);
+			assignmentRow.appendChild(cardDiv);
 		}
 	}
 
