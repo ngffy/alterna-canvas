@@ -51,8 +51,81 @@ function displayAnnouncements() {
 	resetActiveNav("nav-announcements");
 }
 
-function displayAssignments() {
-	fillMainContent("templates/assignment-groups.html");
+/*
+ * Return an object where each key is all the different assignment groups and
+ * the values are the objects representing the assignments within that group
+ */
+async function getAssignmentGroups() {
+	path = "course-data/" + className.toLowerCase().replace(" ", "_") + "/data.txt";
+	file = await fetch(path);
+	data = await file.json();
+
+	groups = {};
+
+	for (idx in data) {
+		obj = data[idx];
+		if ("student-group" in obj) {
+			group = obj["student-group"];
+			if (!(group in groups)) {
+				groups[group] = [];
+			}
+
+			groups[group].push(obj);
+		}
+	}
+
+	return groups;
+}
+
+/*
+ * Display HTML elements that organize class assignments into groups indicated
+ * by the student-group attribute in the class's json file
+ */
+async function displayAssignments() {
+	groups = await getAssignmentGroups();
+
+	main = document.getElementById("main-content");
+	main.innerHTML = "";
+	for (group in groups) {
+		assignmentGroup = document.createElement("article");
+		assignmentGroup.classList.add("row", "col-9", "card")
+		console.log(assignmentGroup.classList)
+
+		header = document.createElement("header");
+		header.classList.add("card-header")
+		
+		h = document.createElement("h3");
+		h.setAttribute("contenteditable", "true");
+		if (group === "null") {
+			h.innerHTML = "Ungrouped";
+		} else {
+			h.innerHTML = group;
+		}
+
+		header.appendChild(h);
+
+		assignmentRow = document.createElement("section");
+		assignmentRow.classList.add("card-body", "row");
+
+		for (idx in groups[group]) {
+			assignment = groups[group][idx];
+
+			div = document.createElement("div");
+			div.classList.add("col");
+
+			assignmentCard = document.createElement("section");
+			assignmentCard.classList.add("card", "card-body");
+			assignmentCard.innerHTML = assignment["title"];
+
+			assignmentRow.appendChild(div);
+			div.appendChild(assignmentCard);
+		}
+
+		assignmentGroup.appendChild(header);
+		assignmentGroup.appendChild(assignmentRow);
+		main.appendChild(assignmentGroup);
+	}
+
 	resetActiveNav("nav-assignments");
 }
 
