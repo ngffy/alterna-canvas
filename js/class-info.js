@@ -178,7 +178,7 @@ function createAssignmentCard(name) {
 	div.classList.add("col");
 
 	assignmentCard = document.createElement("section");
-	assignmentCard.classList.add("card", "card-body", "col");
+	assignmentCard.classList.add("card", "card-body", "col", "dark-bg");
 	assignmentCard.innerHTML = name;
 	div.appendChild(assignmentCard);
 
