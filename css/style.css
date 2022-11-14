@@ -19,11 +19,11 @@ nav {
   width: 100%;
 }
 
-.nav-item :hover {
+.home-nav .nav-item :hover {
   background-color: rgb(218, 217, 217);
 }
 
-.nav-item {
+.home-nav .nav-item {
   font-size: 20px;
 }
 
