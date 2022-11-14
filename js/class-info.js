@@ -65,6 +65,9 @@ function addGroup(name) {
 	assignmentGroup.appendChild(header);
 	header.appendChild(h);
 
+	assignmentGroupDiv = document.getElementById("groups");
+	assignmentGroupDiv.appendChild(assignmentGroup);
+
 	return assignmentGroup;
 }
 
@@ -111,6 +114,7 @@ async function displayAssignments() {
 	addButton.classList.add("btn", "btn-primary");
 	main.appendChild(addButton);
 	addButton.innerHTML = "Add Group";
+	addButton.addEventListener("click", () => {addGroup("Unnamed Group")});
 
 	for (group in groups) {
 		if (group === "null") {
@@ -121,6 +125,7 @@ async function displayAssignments() {
 
 		assignmentRow = document.createElement("section");
 		assignmentRow.classList.add("card-body", "row");
+		assignmentGroup.appendChild(assignmentRow);
 
 		for (idx in groups[group]) {
 			assignment = groups[group][idx];
@@ -135,10 +140,6 @@ async function displayAssignments() {
 			assignmentRow.appendChild(div);
 			div.appendChild(assignmentCard);
 		}
-
-		assignmentGroup.appendChild(header);
-		assignmentGroup.appendChild(assignmentRow);
-		assignmentGroupDiv.appendChild(assignmentGroup);
 	}
 
 	resetActiveNav("nav-assignments");
