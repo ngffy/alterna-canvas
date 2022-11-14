@@ -91,7 +91,6 @@ async function updateAssignmentGroup(name, newGroup) {
 }
 
 function updateAssignmentRowId(assignmentRow, id) {
-	console.log(id);
 	assignmentRow.id = id;
 
 	for (idx in assignmentRow.childNodes) {
@@ -110,12 +109,12 @@ function addGroup(name) {
 	header.classList.add("card-header")
 	assignmentGroup.appendChild(header);
 
-	h = document.createElement("h3");
+	let h = document.createElement("h3");
 	h.setAttribute("contenteditable", "true");
 	h.innerHTML = name;
 	header.appendChild(h);
 
-	assignmentRow = document.createElement("section");
+	let assignmentRow = document.createElement("section");
 	assignmentRow.classList.add("card-body", "row", "assignment-row");
 	assignmentRow.id = name;
 	assignmentRow.addEventListener("drop", (ev) => dropHandler(ev));
