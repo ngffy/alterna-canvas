@@ -71,6 +71,14 @@ function addGroup(name) {
 	return assignmentGroup;
 }
 
+function createAssignmentCard(name) {
+	assignmentCard = document.createElement("section");
+	assignmentCard.classList.add("card", "card-body");
+	assignmentCard.innerHTML = name;
+
+	return assignmentCard;
+}
+
 /*
  * Return an object where each key is all the different assignment groups and
  * the values are the objects representing the assignments within that group
@@ -132,12 +140,9 @@ async function displayAssignments() {
 
 			div = document.createElement("div");
 			div.classList.add("col");
-
-			assignmentCard = document.createElement("section");
-			assignmentCard.classList.add("card", "card-body");
-			assignmentCard.innerHTML = assignment["title"];
-
 			assignmentRow.appendChild(div);
+
+			assignmentCard = createAssignmentCard(assignment["title"]);
 			div.appendChild(assignmentCard);
 		}
 	}
