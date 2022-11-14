@@ -153,7 +153,59 @@ async function displayAssignment(name) {
 
 	let path = "course-data/" + getClassFolder() + "/" + assignment['folder'] + "/" + assignment["name"];
 
-	fillMainContent(path);
+	file = await fetch(path);
+	html = await file.text();
+
+	main = document.getElementById("main-content");
+	main.innerHTML = "";
+
+	assignmentCard = document.createElement("article");
+	assignmentCard.classList.add("row", "col-9", "card");
+	main.appendChild(assignmentCard);
+
+	header = document.createElement("header");
+	header.classList.add("card-header");
+	header.innerHTML = "<h3>" + assignment['title'] + "</h3>";
+	assignmentCard.appendChild(header);
+
+	assignmentBody = document.createElement("section");
+	assignmentBody.classList.add("card-body");
+	assignmentCard.append(assignmentBody);
+
+	details = document.createElement("section");
+	details.classList.add("card", "card-body");
+	details.innerHTML = html;
+	assignmentBody.appendChild(details);
+
+	submissionCard = document.createElement("section");
+	submissionCard.classList.add("card");
+	assignmentBody.appendChild(submissionCard);
+
+	submitHeader = document.createElement("header");
+	submitHeader.classList.add("card-header");
+	submitHeader.innerHTML = "Submission";
+	submissionCard.appendChild(submitHeader);
+
+	submissionBody = document.createElement("section");
+	submissionBody.classList.add("card-body");
+	submissionCard.appendChild(submissionBody);
+
+	textBox = document.createElement("textarea");
+	submissionBody.appendChild(textBox);
+
+	br = document.createElement("br");
+	submissionBody.appendChild(br);
+
+	uploadButton = document.createElement("button");
+	uploadButton.classList.add("btn", "btn-secondary");
+	uploadButton.innerHTML = "Upload files";
+	submissionBody.appendChild(uploadButton);
+
+	submitButton = document.createElement("button");
+	submitButton.classList.add("btn", "btn-primary");
+	submitButton.innerHTML = "Submit";
+	submissionBody.appendChild(submitButton);
+
 	resetActiveNav("nav-assignments");
 }
 
