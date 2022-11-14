@@ -170,7 +170,12 @@ async function displayAssignment(name) {
 
 	assignmentBody = document.createElement("section");
 	assignmentBody.classList.add("card-body");
-	assignmentCard.append(assignmentBody);
+	assignmentCard.appendChild(assignmentBody);
+
+	dueDate = document.createElement("section");
+	dueDate.classList.add("card", "card-body");
+	dueDate.innerHTML = "<b>Due:</b> " + assignment["end_or_due"];
+	assignmentBody.appendChild(dueDate);
 
 	details = document.createElement("section");
 	details.classList.add("card", "card-body");
