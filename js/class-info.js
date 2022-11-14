@@ -56,8 +56,20 @@ function displayAssignments() {
 	resetActiveNav("nav-assignments");
 }
 
-function displayGrades() {
-	fillMainContent("templates/grades.html");
+async function displayGrades() {
+	file = await fetch("templates/grades.html");
+	html = await file.text();
+
+	// Get grade weighting
+	let weights = JSON.parse(sessionStorage.getItem("class_weights"));
+
+	// Update grade weighting
+	html = updateWeights(html, weights);
+
+	// Create sections for the weight groups
+	html = createGradeGroups(html, weights);
+
+	document.getElementById("main-content").innerHTML = html;
 	resetActiveNav("nav-grades");
 }
 
@@ -155,9 +167,50 @@ function loadClass() {
 
   // Retrieve and store class data for modules
   constructModules();
+
+  // Retrieve and store grading info for class
+  getGradeWeighting();
 }
 
 function getClassFolder() {
 	let className = sessionStorage.getItem("selectedClass");
 	return className.toLowerCase().replace(" ", "_");
+}
+
+async function getGradeWeighting() {
+	// Get grade weighting
+    let path = 'course-data/' + getClassFolder() + "/course_info/grading.json";
+    let file = await fetch(path);
+
+    weighting = await file.json();
+
+	sessionStorage.setItem("class_weights", JSON.stringify(weighting));
+}
+
+function createGradeGroups(html, weights) {
+	groups_html = "";
+
+	for (let i = 0; i < Object.keys(weights).length; i++){
+		let key = Object.keys(weights)[i];
+		let group_card = `<section class="card"><header class="card-header"><h3>${key}</h3></header><section class="card-body"><table class="table table-striped"><thead><tr><th>Assignment Name</th><th>Grade</th></tr></thead><tbody></tbody></table></section></section>`
+
+		// TODO: put assignments in card
+
+		groups_html += group_card;
+	}
+
+	return html.replace("groupsHere", groups_html)
+}
+
+function updateWeights(html, weights) {
+	let weight_html= "";
+
+	for (let i = 0; i < Object.keys(weights).length; i++){
+		let key = Object.keys(weights)[i];
+		let value = Math.round(weights[key] * 100);
+
+		weight_html += `<tr><td>${key}</td><td>${value}%</td><td>100%</td></tr>`;
+	}
+
+	return html.replace("weightsHere", weight_html)
 }
