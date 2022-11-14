@@ -86,6 +86,15 @@ async function displayAssignments() {
 
 	main = document.getElementById("main-content");
 	main.innerHTML = "";
+	assignmentGroupDiv = document.createElement("div");
+	assignmentGroupDiv.id = "groups";
+	main.appendChild(assignmentGroupDiv);
+
+	addButton = document.createElement("button");
+	addButton.classList.add("btn", "btn-primary");
+	main.appendChild(addButton);
+	addButton.innerHTML = "Add Group";
+
 	for (group in groups) {
 		assignmentGroup = document.createElement("article");
 		assignmentGroup.classList.add("row", "col-9", "card")
@@ -123,7 +132,7 @@ async function displayAssignments() {
 
 		assignmentGroup.appendChild(header);
 		assignmentGroup.appendChild(assignmentRow);
-		main.appendChild(assignmentGroup);
+		assignmentGroupDiv.appendChild(assignmentGroup);
 	}
 
 	resetActiveNav("nav-assignments");
