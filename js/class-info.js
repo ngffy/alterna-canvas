@@ -90,7 +90,7 @@ async function updateAssignmentGroup(name, newGroup) {
 	}
 }
 
-function updateAssignmentGroup(assignmentRow, id) {
+function updateAssignmentRowId(assignmentRow, id) {
 	console.log(id);
 	assignmentRow.id = id;
 
@@ -121,7 +121,7 @@ function addGroup(name) {
 	assignmentRow.addEventListener("dragover", (ev) => dragoverHandler(ev));
 	assignmentGroup.appendChild(assignmentRow);
 
-	h.addEventListener("input", (e) => updateAssignmentGroup(assignmentRow, h.innerHTML));
+	h.addEventListener("input", (e) => updateAssignmentRowId(assignmentRow, h.innerHTML));
 
 	assignmentGroupDiv = document.getElementById("groups");
 	assignmentGroupDiv.appendChild(assignmentGroup);
