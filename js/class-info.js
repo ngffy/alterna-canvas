@@ -105,6 +105,8 @@ function createAssignmentCard(name) {
 	assignmentCard.innerHTML = name;
 	div.appendChild(assignmentCard);
 
+	assignmentCard.addEventListener("click", () => displayAssignment(name));
+
 	div.setAttribute("draggable", "true");
 	div.addEventListener("dragstart", assignmentDragHandler);
 
@@ -135,6 +137,24 @@ async function getAssignmentGroups() {
 	}
 
 	return groups;
+}
+
+async function displayAssignment(name) {
+	json_path = "course-data/" + getClassFolder() + "/data.txt";
+	file = await fetch(json_path);
+	data = await file.json();
+
+	for (idx in data) {
+		if (data[idx]['title'] === name) {
+			assignment = data[idx];
+			break;
+		}
+	}
+
+	let path = "course-data/" + getClassFolder() + "/" + assignment['folder'] + "/" + assignment["name"];
+
+	fillMainContent(path);
+	resetActiveNav("nav-assignments");
 }
 
 /*
