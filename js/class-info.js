@@ -10,6 +10,10 @@ function initializePage() {
     page = path.split("/").pop();
   }
 
+  if (sessionStorage.getItem("all_assignments") === null) {
+	getAllAssignments();
+  }
+
   if (page == "index.html") {
     sessionStorage.setItem("selectedClass", null);
   } else if (sessionStorage.getItem("selectedClass") !== null) {
@@ -422,11 +426,41 @@ function loadClass() {
   // Retrieve and store class data for modules
   constructModules();
 
+  // Retrieve and store assignment info for class
+  getClassAssignments()
+
   // Retrieve and store grading info for class
   getGradeWeighting();
 
   // Retrieve and store announcements for class
   getAnnouncements();
+}
+
+async function getAllAssignments() {
+	let classes = ["computer_graphics", "senior_design", "ui"];
+	let all_assignments = {};
+
+	for (let i = 0; i < 3; i++){
+		let cur_class = classes[i];
+		let path = "course-data/" + cur_class + "/data.txt";
+
+		let file = await fetch(path);
+		let class_data = await file.json();
+
+		let assignments = []
+
+		for (let j = 0; j < class_data.length; j++){
+			let item = class_data[j];
+
+			if (item.type == "assignment") {
+				assignments.push(item);
+			}
+		}
+
+		all_assignments[cur_class] = assignments
+	}
+
+	sessionStorage.setItem("all_assignments", JSON.stringify(all_assignments))
 }
 
 async function getAnnouncements() {
@@ -436,6 +470,25 @@ async function getAnnouncements() {
     let announcements = await file.json();
 
 	sessionStorage.setItem("announcements", JSON.stringify(announcements));
+}
+
+function getClassAssignments() {
+	let module_data = JSON.parse(sessionStorage.getItem("module_data"));
+
+	let assignments = [];
+
+	// Iterate through modules to get all assignments from m
+	for (let i = 0; i < Object.keys(module_data).length; i++){
+		let mod = Object.keys(module_data)[i];
+		for (let j = 0; j < module_data[mod]["files"].length; j++){
+			let item = module_data[mod]["files"][j];
+			if (item.type == "assignment"){
+				assignments.push(item);
+			}
+		}
+	}
+
+	sessionStorage.setItem("class_assignments", JSON.stringify(assignments));
 }
 
 function getClassFolder() {
