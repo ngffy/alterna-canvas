@@ -62,8 +62,7 @@ function displayGrades() {
 }
 
 function displayClassSyllabus() {
-	className = sessionStorage.getItem("selectedClass");
-	path = "course-data/" + className.toLowerCase().replace(" ", "_") + "/course_info/syllabus.html";
+	path = "course-data/" + getClassFolder() + "/course_info/syllabus.html";
 
 	fillMainContent(path)
 	resetActiveNav("nav-syllabus");
@@ -74,7 +73,7 @@ async function displayClassModule(mod_num) {
 	html = await file.text();
 
 	let mod_data = JSON.parse(sessionStorage.getItem("module_data"));
-	mod_data = mod_data["module"+mod_num]
+	mod_data = mod_data["module"+mod_num];
 
 	// Update template for given module
 	html = html.replace("moduleName", `Module ${mod_num}: ${mod_data.title}`);
@@ -84,7 +83,15 @@ async function displayClassModule(mod_num) {
 	for (let i = 0; i < mod_data.files.length; i++){
 		let item = mod_data.files[i];
 
-		tbody += `<tr><td>${item.title}</td><td>${item.type}</td><td>${item.end_or_due}</td><td><button class="btn btn-primary">View</button></td></tr>`;
+		let btn = "";
+		if (item.name.endsWith(".html")){
+			btn = `<button class="btn btn-primary" onclick="displayModuleItem(${mod_num}, ${i})" style="width:100%">View</button>`;
+		} else {
+			let path = `course-data/${getClassFolder()}/${item.folder}/${item.name}`;
+			btn = `<a class="btn btn-primary" href=${path} download" style="width:100%">Download</a>`;
+		}
+
+		tbody += `<tr><td>${item.title}</td><td>${item.type}</td><td>${item.end_or_due}</td><td><span class="bi-check-square"></span></td><td>${btn}</td></tr>`;
 	}
 	
 	html = html.replaceAll("tbodyHere", tbody);
@@ -93,10 +100,19 @@ async function displayClassModule(mod_num) {
 	resetActiveNav("nav-modules");
 }
 
+function displayModuleItem(mod_num, i) {
+	let mod_data = JSON.parse(sessionStorage.getItem("module_data"));
+	mod_data = mod_data["module"+mod_num];
+	let item = mod_data.files[i];
+
+	let path = `course-data/${getClassFolder()}/${item.folder}/${item.name}`;
+
+	fillMainContent(path);
+	resetActiveNav("nav-modules");
+}
+
 async function constructModules() {
-	console.log('running')
-	className = sessionStorage.getItem("selectedClass");
-	path = "course-data/" + className.toLowerCase().replace(" ", "_") + "/data.txt";
+	path = "course-data/" + getClassFolder() + "/data.txt";
 
 	file = await fetch(path);
 	class_data = await file.json();
@@ -124,12 +140,10 @@ async function constructModules() {
 
 function createModuleLinks(mod_data) {
 	let html = "";
-	console.log(mod_data)
 
 	for (let i = 1; i <= Object.keys(mod_data).length; i++){
 		html += `<li><a class="dropdown-item" onclick="displayClassModule(${i})">Module ${i}</a></li>`
 	}
-	console.log(html)
 
 	document.getElementById("module-dropdown").innerHTML = html;
 }
@@ -141,4 +155,9 @@ function loadClass() {
 
   // Retrieve and store class data for modules
   constructModules();
+}
+
+function getClassFolder() {
+	let className = sessionStorage.getItem("selectedClass");
+	return className.toLowerCase().replace(" ", "_");
 }

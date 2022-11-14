@@ -61,7 +61,7 @@
     },
     {
         "name": "assignment_01.html",
-        "folder": "assignment",
+        "folder": "assignments",
         "type": "assignment",
         "grading": "assignment",
         "points": "10",
@@ -193,7 +193,7 @@
     },
     {
         "name": "assignment_02.html",
-        "folder": "assignment",
+        "folder": "assignments",
         "type": "assignment",
         "grading": "assignment",
         "points": "10",
@@ -313,7 +313,7 @@
     },
     {
         "name": "assignment_03.html",
-        "folder": "assignment",
+        "folder": "assignments",
         "type": "assignment",
         "grading": "assignment",
         "points": "10",
@@ -421,7 +421,7 @@
     },
     {
         "name": "assignment_04.html",
-        "folder": "assignment",
+        "folder": "assignments",
         "type": "assignment",
         "grading": "assignment",
         "points": "10",
@@ -481,7 +481,7 @@
     },
     {
         "name": "assignment_05.html",
-        "folder": "assignment",
+        "folder": "assignments",
         "type": "assignment",
         "grading": "assignment",
         "points": "10",
@@ -541,7 +541,7 @@
     },
     {
         "name": "assignment_06.html",
-        "folder": "assignment",
+        "folder": "assignments",
         "type": "assignment",
         "grading": "assignment",
         "points": "10",
@@ -589,7 +589,7 @@
     },
     {
         "name": "assignment_07.html",
-        "folder": "assignment",
+        "folder": "assignments",
         "type": "assifgnment",
         "grading": "assignment",
         "points": "10",
@@ -637,7 +637,7 @@
     },
     {
         "name": "assignment08.html",
-        "folder": "assignment",
+        "folder": "assignments",
         "type": "assignment",
         "grading": "assignment",
         "points": "10",
