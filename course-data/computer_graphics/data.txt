@@ -70,7 +70,7 @@
         "module": "module1",
         "title": "first assignment",
         "reference": "na",
-	"student_group": null
+	"student-group": null
     },
     {
         "name": "module2",
@@ -203,7 +203,7 @@
         "module": "module2",
         "title": "Linear algebra review",
         "reference": "na",
-	"student_group": null
+	"student-group": null
     },
     {
         "name": "module3",
@@ -324,7 +324,7 @@
         "module": "module3",
         "title": "Rasterization exercise",
         "reference": "na",
-	"student_group": null
+	"student-group": null
     },
     {
         "name": "module4",
@@ -433,7 +433,7 @@
         "module": "module4",
         "title": "Transformations exercise",
         "reference": "na",
-	"student_group": null
+	"student-group": null
     },
     {
         "name": "module5",
@@ -494,7 +494,7 @@
         "module": "module5",
         "title": "Projection exercises",
         "reference": "na",
-	"student_group": null
+	"student-group": null
     },
     {
         "name": "module6",
@@ -555,7 +555,7 @@
         "module": "module5",
         "title": "Texture mapping exercises",
         "reference": "na",
-	"student_group": null
+	"student-group": null
     },
     {
         "name": "module7",
@@ -604,7 +604,7 @@
         "module": "na",
         "title": "Color",
         "reference": "na",
-	"student_group": null
+	"student-group": null
     },
     {
         "name": "module8",
@@ -653,7 +653,7 @@
         "module": "module8",
         "title": "Light and shadow",
         "reference": "na",
-	"student_group": null
+	"student-group": null
     },
     {
         "name": "midterm.html",
