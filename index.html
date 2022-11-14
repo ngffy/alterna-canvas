@@ -111,39 +111,33 @@
                   <div class="col d-flex flex-column day">
                     <h4 class="day-header">Thurs 13</h4>
                     <section class="day-info flex-fill">
-                      <div class="card bg-light">
-                        <div class="card-body">
-                          Assignment 1
-                          <hr>
-                          11:59pm
-                        </div>
-                      </div>
-                      <div class="card bg-light">
-                        <div class="card-body complete">
-                          Assignment 2
-                          <hr>
-                          11:59pm
-                        </div>
-                      </div>
-                      <div class="card bg-light">
-                        <div class="card-body">
-                          Assignment 3
-                          <hr>
-                          11:59pm
-                        </div>
-                      </div>
-                      <div class="card bg-light">
-                        <div class="card-body">
-                          Assignment 4
-                          <hr>
-                          11:59pm
-                        </div>
-                      </div>
                     </section>
                   </div>
                   <div class="col d-flex flex-column day">
                     <h4 class="day-header">Fri 14</h4>
-                    <section class="day-info flex-fill"></section>
+                    <section class="day-info flex-fill">
+                      <a class="card bg-light" href="class-info.html" onclick="sessionStorage.setItem('selectedClass', 'Computer Graphics')">
+                        <div class="card-body">
+                          Color
+                          <hr>
+                          Computer Graphics
+                        </div>
+                      </a>
+                      <a class="card bg-light" href="class-info.html" onclick="sessionStorage.setItem('selectedClass', 'Computer Graphics')">
+                        <div class="card-body">
+                          Light and Shadow
+                          <hr>
+                          Computer Graphics
+                        </div>
+                      </a>
+                      <a class="card bg-light" href="class-info.html" onclick="sessionStorage.setItem('selectedClass', 'UI')">
+                        <div class="card-body">
+                          Project 1 implementation
+                          <hr>
+                          UI
+                        </div>
+                      </a>
+                    </section>
                   </div>
                   <div class="col d-flex flex-column day">
                     <h4 class="day-header">Sat 15</h4>
@@ -151,7 +145,15 @@
                   </div>
                   <div class="col d-flex flex-column day">
                     <h4 class="day-header">Sun 16</h4>
-                    <section class="day-info flex-fill"></section>
+                    <section class="day-info flex-fill">
+                      <a class="card bg-light" href="class-info.html" onclick="sessionStorage.setItem('selectedClass', 'UI')">
+                        <div class="card-body">
+                          Project 1 documentation
+                          <hr>
+                          UI
+                        </div>
+                      </a>
+                    </section>
                   </div>
                 </div>
 
@@ -182,8 +184,8 @@
                 </div>
 
                 <div class="card-footer d-flex justify-content-between">
-                  <button class="btn btn-light">Prev Week</button>
-                  <button class="btn btn-light">Next Week</button>
+                  <button class="btn btn-light" onclick="window.alert('In real interface, this calendar would be interactive and allow for moving between weeks.')">Prev Week</button>
+                  <button class="btn btn-light" onclick="window.alert('In real interface, this calendar would be interactive and allow for moving between weeks.')">Next Week</button>
                 </div>
               </section>
             </article>
@@ -227,5 +229,6 @@
 
     <script src="js/nav.js"></script>
     <script src="js/to-do.js"></script>
+    <script src="js/calendar.js"></script>
   </body>
 </html>

@@ -38,3 +38,8 @@
 .past {
   background: rgb(155, 188, 189);
 }
+
+.day a {
+  text-decoration: none;
+  color: black;
+}
