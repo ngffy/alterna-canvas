@@ -97,10 +97,10 @@ async function displayClassModule(mod_num) {
 
 		let btn = "";
 		if (item.name.endsWith(".html")){
-			btn = `<button class="btn btn-primary" onclick="displayModuleItem(${mod_num}, ${i})" style="width:100%">View</button>`;
+			btn = `<button class="btn btn-light" onclick="displayModuleItem(${mod_num}, ${i})" style="width:100%">View</button>`;
 		} else {
 			let path = `course-data/${getClassFolder()}/${item.folder}/${item.name}`;
-			btn = `<a class="btn btn-primary" href=${path} download" style="width:100%">Download</a>`;
+			btn = `<a class="btn btn-light" href=${path} download" style="width:100%">Download</a>`;
 		}
 
 		tbody += `<tr><td>${item.title}</td><td>${item.type}</td><td>${item.end_or_due}</td><td><span class="bi-check-square"></span></td><td>${btn}</td></tr>`;
@@ -192,7 +192,7 @@ function createGradeGroups(html, weights) {
 
 	for (let i = 0; i < Object.keys(weights).length; i++){
 		let key = Object.keys(weights)[i];
-		let group_card = `<section class="card"><header class="card-header"><h3>${key}</h3></header><section class="card-body"><table class="table table-striped"><thead><tr><th>Assignment Name</th><th>Grade</th></tr></thead><tbody></tbody></table></section></section>`
+		let group_card = `<section class="card"><header class="card-header"><h3>${key}</h3></header><section class="card-body"><table class="table dark-bg"><thead><tr><th>Assignment Name</th><th>Grade</th></tr></thead><tbody></tbody></table></section></section>`
 
 		// TODO: put assignments in card
 

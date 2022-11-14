@@ -30,10 +30,10 @@
   </head>
 
   <body>
-    <main class="main">
-      <div class="row">
+    <main class="main row">
+      <!-- <div class="row"> -->
         <!-- Main navigation -->
-        <nav class="col-2 bg-light" id="nav">
+        <nav class="col-2" id="nav">
         <!-- Defined in nav.html, filled by JS -->
         </nav>
 
@@ -41,21 +41,21 @@
         <div class="container col">
           <section class="row home-snapshot">
             <article class="d-flex flex-column col-4 h-100">
-              <section class="todo card flex-fill">
+              <section class="todo card flex-fill h-50">
                 <header class="card-header">
                   <h3>To-Do List</h3>
                 </header>
 
-                <section class="card-body">
+                <section class="card-body y-overflow">
                   <ul class="list-group">
                     <div id="todo-list"></div>
 
-                    <li class="list-group-item d-flex flex-row justify-content-between">
+                    <li class="list-group-item d-flex flex-row justify-content-between dark-bg">
                       <div>
                         <input type="text" placeholder="Add new item" class="form-control" id="new-item-input">
                       </div>
                       <div>
-                        <span onclick="addItem()" class="bi-plus-circle btn btn-primary"></span>
+                        <span onclick="addItem()" class="bi-plus-circle btn btn-light"></span>
                       </div>
                     </li>
                   </ul>
@@ -64,12 +64,12 @@
                 <section class="card-footer" id="progress"></section>
               </section>
 
-              <section class="card flex-fill">
+              <section class="card flex-fill h-50">
                 <header class="card-header">
                   <h3>Upcoming Assignments</h3>
                 </header>
 
-                <section class="card-body">
+                <section class="card-body y-overflow">
                   <ol>
                     <li>Assignment 1</li>
                     <li>Assignment 2</li>
@@ -152,16 +152,16 @@
 
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="btn-group">
                       <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                      <label class="btn btn-outline-primary" for="btnradio1">All</label>
+                      <label class="btn btn-outline-light" for="btnradio1">All</label>
                     
                       <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                      <label class="btn btn-outline-primary" for="btnradio2">Computer Graphics</label>
+                      <label class="btn btn-outline-light" for="btnradio2">Computer Graphics</label>
                     
                       <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                      <label class="btn btn-outline-primary" for="btnradio3">Senior Design</label>
+                      <label class="btn btn-outline-light" for="btnradio3">Senior Design</label>
 
                       <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-                      <label class="btn btn-outline-primary" for="btnradio4">UI</label>
+                      <label class="btn btn-outline-light" for="btnradio4">UI</label>
                     </div>
 
                   </div>
@@ -173,15 +173,15 @@
                 </div>
 
                 <div class="card-footer d-flex justify-content-between">
-                  <button class="btn btn-primary">Prev Week</button>
-                  <button class="btn btn-primary">Next Week</button>
+                  <button class="btn btn-light">Prev Week</button>
+                  <button class="btn btn-light">Next Week</button>
                 </div>
               </section>
             </article>
           </section>
         </div>
 
-      </div>
+      <!-- </div> -->
     </main>
 
     <!-- To-Do Edit Modal -->

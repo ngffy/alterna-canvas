@@ -13,3 +13,7 @@
 .new-item {
     font-size: 16px;
 }
+
+.y-overflow {
+    overflow-y: auto;
+  }
