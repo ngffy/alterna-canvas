@@ -51,6 +51,23 @@ function displayAnnouncements() {
 	resetActiveNav("nav-announcements");
 }
 
+function assignmentDragHandler(ev) {
+	console.log(ev.target.outerHTML);
+	ev.dataTransfer.setData("text/html", ev.target.outerHTML);
+	ev.dataTransfer.dropEffect = "move";
+}
+
+function dropHandler(ev, el) {
+	ev.preventDefault();
+	data = ev.dataTransfer.getData("text/html");
+	el.innerHTML += data;
+}
+
+function dragoverHandler(ev, el) {
+	ev.preventDefault();
+	ev.dataTransfer.dropEffect = "move";
+}
+
 function addGroup(name) {
 	assignmentGroup = document.createElement("article");
 	assignmentGroup.classList.add("row", "col-9", "card")
@@ -65,10 +82,17 @@ function addGroup(name) {
 	assignmentGroup.appendChild(header);
 	header.appendChild(h);
 
+	assignmentRow = document.createElement("section");
+	assignmentRow.classList.add("card-body", "row");
+	assignmentGroup.appendChild(assignmentRow);
+
+	assignmentRow.addEventListener("drop", (ev) => dropHandler(ev, assignmentRow));
+	assignmentRow.addEventListener("dragover", (ev) => dragoverHandler(ev, assignmentRow));
+
 	assignmentGroupDiv = document.getElementById("groups");
 	assignmentGroupDiv.appendChild(assignmentGroup);
 
-	return assignmentGroup;
+	return assignmentRow;
 }
 
 function createAssignmentCard(name) {
@@ -81,6 +105,7 @@ function createAssignmentCard(name) {
 	div.appendChild(assignmentCard);
 
 	div.setAttribute("draggable", "true");
+	div.addEventListener("dragstart", assignmentDragHandler);
 
 	return div;
 }
@@ -132,14 +157,10 @@ async function displayAssignments() {
 
 	for (group in groups) {
 		if (group === "null") {
-			assignmentGroup = addGroup("Ungrouped");
+			assignmentRow = addGroup("Ungrouped");
 		} else {
-			assignmentGroup = addGroup(group);
+			assignmentRow = addGroup(group);
 		}
-
-		assignmentRow = document.createElement("section");
-		assignmentRow.classList.add("card-body", "row");
-		assignmentGroup.appendChild(assignmentRow);
 
 		for (idx in groups[group]) {
 			assignment = groups[group][idx];
