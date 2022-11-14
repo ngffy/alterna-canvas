@@ -60,13 +60,34 @@ function dropHandler(ev) {
 	ev.preventDefault();
 	id = ev.dataTransfer.getData("text/plain");
 	if (ev.target.classList.contains("assignment-row")) {
-		ev.target.appendChild(document.getElementById(id));
+		card = document.getElementById(id);
+		ev.target.appendChild(card);
+		updateAssignmentGroup(id, ev.target.id);
 	}
 }
 
 function dragoverHandler(ev) {
 	ev.preventDefault();
 	ev.dataTransfer.dropEffect = "move";
+}
+
+async function getClassData() {
+	path = "course-data/" + getClassFolder() + "/data.txt";
+	file = await fetch(path);
+	data = await file.json();
+
+	return data;
+}
+
+async function updateAssignmentGroup(name, newGroup) {
+	data = await getClassData();
+
+	for (idx in data) {
+		obj = data[idx];
+		if (obj['title'] === name) {
+			sessionStorage.setItem(name, newGroup);
+		}
+	}
 }
 
 function addGroup(name) {
@@ -84,6 +105,7 @@ function addGroup(name) {
 
 	assignmentRow = document.createElement("section");
 	assignmentRow.classList.add("card-body", "row", "assignment-row");
+	assignmentRow.id = name;
 	assignmentRow.addEventListener("drop", (ev) => dropHandler(ev));
 	assignmentRow.addEventListener("dragover", (ev) => dragoverHandler(ev));
 	assignmentGroup.appendChild(assignmentRow);
@@ -125,14 +147,17 @@ async function getAssignmentGroups() {
 
 	for (idx in data) {
 		obj = data[idx];
-		if ("student-group" in obj) {
-			group = obj["student-group"];
-			if (!(group in groups)) {
-				groups[group] = [];
-			}
-
-			groups[group].push(obj);
+		if (obj['type'] !== "assignment") {
+			continue;
 		}
+
+		group = sessionStorage.getItem(obj["title"]);
+
+		if (!(group in groups)) {
+			groups[group] = [];
+		}
+
+		groups[group].push(obj);
 	}
 
 	return groups;
