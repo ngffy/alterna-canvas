@@ -90,6 +90,17 @@ async function updateAssignmentGroup(name, newGroup) {
 	}
 }
 
+function updateAssignmentGroup(assignmentRow, id) {
+	console.log(id);
+	assignmentRow.id = id;
+
+	for (child in assignmentRow.children) {
+		if (child.nodeName === "div") {
+			updateAssignmentGroup(child.id, id);
+		}
+	}
+}
+
 function addGroup(name) {
 	assignmentGroup = document.createElement("article");
 	assignmentGroup.classList.add("row", "col-9", "card")
@@ -109,6 +120,8 @@ function addGroup(name) {
 	assignmentRow.addEventListener("drop", (ev) => dropHandler(ev));
 	assignmentRow.addEventListener("dragover", (ev) => dragoverHandler(ev));
 	assignmentGroup.appendChild(assignmentRow);
+
+	h.addEventListener("input", (e) => updateAssignmentGroup(assignmentRow, h.innerHTML));
 
 	assignmentGroupDiv = document.getElementById("groups");
 	assignmentGroupDiv.appendChild(assignmentGroup);
