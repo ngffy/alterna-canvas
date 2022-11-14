@@ -30,22 +30,22 @@
   <body>
     <div class="main row">
         <!-- Main navigation -->
-	<nav class="col-2 bg-light" id="nav">
-	<!-- Defined in nav.html, filled by JS -->
-	</nav>
+      <nav class="col-2" id="nav">
+      <!-- Defined in nav.html, filled by JS -->
+      </nav>
 
       <!-- Page Content -->
       <div class="col">
         <h1 id="class_name">Class Name</h1>
 
         <!-- Class navar goes here -->
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs" id="class-nav">
           <li class="nav-item">
             <span
-							id="nav-home"
+              id="nav-home"
               class="nav-link"
               aria-current="page"
-	      onclick='displayClassHome()'
+              onclick='displayClassHome()'
               >Home</span
             >
           </li>
@@ -63,7 +63,7 @@
           </li>
           <li class="nav-item dropdown">
             <span
-							id="nav-modules"
+              id="nav-modules"
               class="nav-link dropdown-toggle"
               data-bs-toggle="dropdown"
               role="button"
