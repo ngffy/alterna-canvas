@@ -52,17 +52,15 @@ function displayAnnouncements() {
 }
 
 function assignmentDragHandler(ev) {
-	console.log(ev.target.outerHTML);
-	ev.dataTransfer.setData("text/html", ev.target.outerHTML);
+	ev.dataTransfer.setData("text/plain", ev.target.id);
 	ev.dataTransfer.dropEffect = "move";
 }
 
 function dropHandler(ev) {
 	ev.preventDefault();
-	data = ev.dataTransfer.getData("text/html");
-	console.log(ev.target);
+	id = ev.dataTransfer.getData("text/plain");
 	if (ev.target.classList.contains("assignment-row")) {
-		ev.target.innerHTML += data;
+		ev.target.appendChild(document.getElementById(id));
 	}
 }
 
@@ -109,6 +107,7 @@ function createAssignmentCard(name) {
 
 	div.setAttribute("draggable", "true");
 	div.addEventListener("dragstart", assignmentDragHandler);
+	div.id = name;
 
 	return div;
 }
