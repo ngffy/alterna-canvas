@@ -51,7 +51,7 @@
         "name": "01-03.pptx",
         "folder": "presentations",
         "type": "lecture",
-        "grading": "partitipation",
+        "grading": "participation",
         "points": "1",
         "start_or_posted": "8/26/22",
         "end_or_due": "8/26/22",
@@ -590,7 +590,7 @@
     {
         "name": "assignment_07.html",
         "folder": "assignments",
-        "type": "assifgnment",
+        "type": "assignment",
         "grading": "assignment",
         "points": "10",
         "start_or_posted": "10/5/22",
