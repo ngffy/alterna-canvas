@@ -51,6 +51,23 @@ function displayAnnouncements() {
 	resetActiveNav("nav-announcements");
 }
 
+function addGroup(name) {
+	assignmentGroup = document.createElement("article");
+	assignmentGroup.classList.add("row", "col-9", "card")
+
+	header = document.createElement("header");
+	header.classList.add("card-header")
+
+	h = document.createElement("h3");
+	h.setAttribute("contenteditable", "true");
+	h.innerHTML = name;
+
+	assignmentGroup.appendChild(header);
+	header.appendChild(h);
+
+	return assignmentGroup;
+}
+
 /*
  * Return an object where each key is all the different assignment groups and
  * the values are the objects representing the assignments within that group
@@ -96,22 +113,11 @@ async function displayAssignments() {
 	addButton.innerHTML = "Add Group";
 
 	for (group in groups) {
-		assignmentGroup = document.createElement("article");
-		assignmentGroup.classList.add("row", "col-9", "card")
-		console.log(assignmentGroup.classList)
-
-		header = document.createElement("header");
-		header.classList.add("card-header")
-		
-		h = document.createElement("h3");
-		h.setAttribute("contenteditable", "true");
 		if (group === "null") {
-			h.innerHTML = "Ungrouped";
+			assignmentGroup = addGroup("Ungrouped");
 		} else {
-			h.innerHTML = group;
+			assignmentGroup = addGroup(group);
 		}
-
-		header.appendChild(h);
 
 		assignmentRow = document.createElement("section");
 		assignmentRow.classList.add("card-body", "row");
