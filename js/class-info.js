@@ -94,8 +94,9 @@ function updateAssignmentRowId(assignmentRow, id) {
 	console.log(id);
 	assignmentRow.id = id;
 
-	for (child in assignmentRow.children) {
-		if (child.nodeName === "div") {
+	for (idx in assignmentRow.childNodes) {
+		child = assignmentRow.childNodes[idx];
+		if (child.nodeName === "DIV") {
 			updateAssignmentGroup(child.id, id);
 		}
 	}
