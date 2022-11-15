@@ -28,3 +28,23 @@ function addCalItem(html, item){
 
     return html + cal_item
 }
+
+function filterCal(filter){
+    if (filter == "Computer Graphics") {
+        document.getElementById("event1").style.visibility = "visible";
+        document.getElementById("event2").style.visibility = "hidden";
+        document.getElementById("event3").style.visibility = "hidden";
+    } else if (filter == "UI") {
+        document.getElementById("event1").style.visibility = "hidden";
+        document.getElementById("event2").style.visibility = "visible";
+        document.getElementById("event3").style.visibility = "visible";
+    } else if (filter == "Senior Design") {
+        document.getElementById("event1").style.visibility = "hidden";
+        document.getElementById("event2").style.visibility = "hidden";
+        document.getElementById("event3").style.visibility = "hidden";
+    } else {
+        document.getElementById("event1").style.visibility = "visible";
+        document.getElementById("event2").style.visibility = "visible";
+        document.getElementById("event3").style.visibility = "visible";
+    }
+}

@@ -63,6 +63,37 @@ function addItem(){
     displayToDo();
 }
 
+// function addToCalendar(item){
+//     console.log('here')
+//     let cal_start = new Date("10/10/2022");
+//     let item_date = new Date(item.due_date);
+
+//     let dif_days = Math.ceil((item_date - cal_start) / (1000 * 60 * 60 * 24));
+
+//     if (dif_days >= 7){
+//         return
+//     }
+//     console.log(dif_days, item_date, cal_start)
+    
+//     let col = document.getElementById("day" + dif_days);
+//     console.log(col)
+
+//     let d = document.createElement("div");
+//     d.classList.add("card", "bg-light")
+
+//     if (item.complete) {
+//         console.log(complete)
+//         d.classList.add("complete");
+//     }
+
+// 	d.setAttribute("onclick", "window.alert('This would take you to assignment details page in fully implemented UI')");
+// 	d.innerHTML = `<div class="card-body>${item.title}<hr>${item.class}</div>`;
+//     console.log(d.innerHTML)
+// 	col.appendChild(d);
+
+//     console.log(col)
+// }
+
 function deleteItem(id){
     let i = id.replace("todo", "");
     to_do.splice(i, 1);
@@ -79,6 +110,11 @@ function editItem(i){
     item.due_date = document.getElementById("due-date").value;
     item.due_time = document.getElementById("due-time").value;
     item.class = document.getElementById("class").value;
+
+    // Add to calendar if needed
+    // if (item.due_date !== null) {
+    //     addToCalendar(item);
+    // }
 
     sessionStorage.setItem("to_do_list", JSON.stringify(to_do));
     displayToDo();

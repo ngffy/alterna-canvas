@@ -106,32 +106,31 @@
                 <div class="cal-body card-body row text-center">
                   <div class="col d-flex flex-column day">
                     <h4 class="day-header">Mon 10</h4>
-                    <section class="day-info flex-fill past"></section>
+                    <section class="day-info flex-fill past" id="day0"></section>
                   </div>
                   <div class="col d-flex flex-column day">
                     <h4 class="day-header">Tues 11</h4>
-                    <section class="day-info flex-fill past"></section>
+                    <section class="day-info flex-fill past" id="day1"></section>
                   </div>
                   <div class="col d-flex flex-column day">
                     <h4 class="day-header">Wed 12</h4>
-                    <section class="day-info flex-fill past"></section>
+                    <section class="day-info flex-fill past" id="day2"></section>
                   </div>
                   <div class="col d-flex flex-column day">
                     <h4 class="day-header">Thurs 13</h4>
-                    <section class="day-info flex-fill">
-                    </section>
+                    <section class="day-info flex-fill" id="day3"></section>
                   </div>
                   <div class="col d-flex flex-column day">
                     <h4 class="day-header">Fri 14</h4>
-                    <section class="day-info flex-fill">
-                      <a class="card bg-light" href="class-info.html" onclick="sessionStorage.setItem('selectedClass', 'Computer Graphics')">
+                    <section class="day-info flex-fill" id="day4">
+                      <a class="card bg-light" href="class-info.html" onclick="sessionStorage.setItem('selectedClass', 'Computer Graphics')" id="event1">
                         <div class="card-body">
                           Color
                           <hr>
                           Computer Graphics
                         </div>
                       </a>
-                      <a class="card bg-light" href="class-info.html" onclick="sessionStorage.setItem('selectedClass', 'UI')">
+                      <a class="card bg-light" href="class-info.html" onclick="sessionStorage.setItem('selectedClass', 'UI')" id="event2">
                         <div class="card-body">
                           Project 1 implementation
                           <hr>
@@ -142,12 +141,12 @@
                   </div>
                   <div class="col d-flex flex-column day">
                     <h4 class="day-header">Sat 15</h4>
-                    <section class="day-info flex-fill"></section>
+                    <section class="day-info flex-fill" id="day5"></section>
                   </div>
                   <div class="col d-flex flex-column day">
                     <h4 class="day-header">Sun 16</h4>
-                    <section class="day-info flex-fill">
-                      <a class="card bg-light" href="class-info.html" onclick="sessionStorage.setItem('selectedClass', 'UI')">
+                    <section class="day-info flex-fill" id="day6">
+                      <a class="card bg-light" href="class-info.html" onclick="sessionStorage.setItem('selectedClass', 'UI')" id="event3">
                         <div class="card-body">
                           Project 1 documentation
                           <hr>
@@ -163,16 +162,16 @@
                     <label for="btn-group" class="form-label">Display Classes:</label>
 
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="btn-group">
-                      <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio1" checked onclick="filterCal('All')">
                       <label class="btn btn-outline-light" for="btnradio1">All</label>
                     
-                      <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio2" onclick="filterCal('Computer Graphics')">
                       <label class="btn btn-outline-light" for="btnradio2">Computer Graphics</label>
                     
-                      <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio3" onclick="filterCal('Senior Design')">
                       <label class="btn btn-outline-light" for="btnradio3">Senior Design</label>
 
-                      <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio4" onclick="filterCal('UI')">
                       <label class="btn btn-outline-light" for="btnradio4">UI</label>
                     </div>
 
