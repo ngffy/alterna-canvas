@@ -4,27 +4,15 @@
       <div class="row">
         <div class="col"><h3>Upcoming Assignments</h3></div>
         <div class="col-auto">
-          <button class="btn btn-light">View All</button>
+          <button class="btn btn-light" onclick="displayAssignments()">View All</button>
         </div>
       </div>
     </div>
 
     <!-- Assignment cards go here -->
     <div class="card-body">
-      <div class="card dark-bg">
-        <div class="card-body">
-          <h5 class="card-title">Test Assignment</h5>
 
-          <div class="row">
-            <div class="col">
-              <p><b>Due: </b>10/31/22 8:00pm</p>
-            </div>
-            <div class="col-auto">
-              <button class="btn btn-light">View</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      assignmentsHere
     </div>
   </div>
 </div>
@@ -40,9 +28,7 @@
     </div>
 
     <div class="card-footer">
-<a href="announcements.html">
-  <button class="btn btn-light w-100">View All</button>
-</a>
+  <button class="btn btn-light w-100" onclick="displayAnnouncements()">View All</button>
     </div>
   </div>
 
@@ -52,19 +38,17 @@
     </div>
 
     <div class="card-body text-center">
-      <h2>93%</h2>
+      <h2>totalGradeHere</h2>
     </div>
 
     <div class="card-footer">
-      <a href="grades.html">
-        <button class="btn btn-light w-100">View All</button>
-      </a>
+      <button class="btn btn-light w-100" onclick="displayGrades()">View All</button>
     </div>
   </div>
 
   <div class="card">
     <div class="card-body">
-      <button class="btn btn-light w-100">Connect to Zoom</button>
+      <button class="btn btn-light w-100" onclick="window.alert('This would allow you to connect to Zoom in the real interface.')">Connect to Zoom</button>
     </div>
   </div>
 </div>

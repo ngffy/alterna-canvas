@@ -79,14 +79,17 @@
     {
         "name": "assignment_01.html",
         "folder": "assignments",
-        "type": "assignment",
-        "grading": "assignment",
+        "type": "assignments",
+        "grading": "assignments",
         "start_or_posted": "8/15/22",
         "end_or_due": "8/29/22",
         "module": "module3",
         "title": "First assignment",
         "reference": "na",
-	"student-group": null
+	    "student-group": null,
+        "submitted": false,
+        "grade": 0.97,
+        "points": 10
     },
     {
         "name": "module4",
@@ -113,14 +116,17 @@
     {
         "name": "assignment_02.html",
         "folder": "assignments",
-        "type": "assignment",
-        "grading": "assignment",
+        "type": "assignments",
+        "grading": "assignments",
         "start_or_posted": "8/15/22",
         "end_or_due": "8/29/22",
         "module": "module4",
         "title": "User profiles",
         "reference": "na",
-	"student-group": null
+	    "student-group": null,
+        "submitted": false,
+        "grade": 0.85,
+        "points": 10
     },
     {
         "name": "module5",
@@ -147,14 +153,17 @@
     {
         "name": "assignment_03.html",
         "folder": "assignments",
-        "type": "assignment",
-        "grading": "assignment",
+        "type": "assignments",
+        "grading": "assignments",
         "start_or_posted": "8/15/22",
         "end_or_due": "8/29/22",
         "module": "module5",
         "title": "Tasks",
         "reference": "na",
-	"student-group": null
+	    "student-group": null,
+        "submitted": false,
+        "grade": 0.90,
+        "points": 10
     },
     {
         "name": "module6",
@@ -181,14 +190,17 @@
     {
         "name": "assignment_04.html",
         "folder": "assignments",
-        "type": "assignment",
-        "grading": "assignment",
+        "type": "assignments",
+        "grading": "assignments",
         "start_or_posted": "8/15/22",
         "end_or_due": "8/29/22",
         "module": "module6",
         "title": "Timeline",
         "reference": "na",
-	"student-group": null
+	    "student-group": null,
+        "submitted": false,
+        "grade": 0.76,
+        "points": 10
     },
     {
         "name": "module7",
@@ -215,14 +227,17 @@
     {
         "name": "assignment_05.html",
         "folder": "assignments",
-        "type": "assignment",
-        "grading": "assignment",
+        "type": "assignments",
+        "grading": "assignments",
         "start_or_posted": "8/15/22",
         "end_or_due": "8/29/22",
         "module": "module7",
         "title": "Project status update",
         "reference": "na",
-	"student-group": null
+	    "student-group": null,
+        "submitted": false,
+        "grade": 0.89,
+        "points": 10
     },
     {
         "name": "module8",
@@ -249,13 +264,16 @@
     {
         "name": "assignment_06.html",
         "folder": "assignments",
-        "type": "assignment",
-        "grading": "assignment",
+        "type": "assignments",
+        "grading": "assignments",
         "start_or_posted": "8/15/22",
         "end_or_due": "8/29/22",
         "module": "module8",
         "title": "Project status update",
         "reference": "na",
-	"student-group": null
+	    "student-group": null,
+        "submitted": false,
+        "grade": 0.89,
+        "points": 10
     }
 ]

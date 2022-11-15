@@ -62,15 +62,17 @@
     {
         "name": "assignment_01.html",
         "folder": "assignments",
-        "type": "assignment",
-        "grading": "assignment",
+        "type": "assignments",
+        "grading": "assignments",
         "points": "10",
         "start_or_posted": "8/15/22",
         "end_or_due": "8/29/22",
         "module": "module1",
         "title": "first assignment",
         "reference": "na",
-	"student-group": null
+	    "student-group": null,
+        "submitted": false,
+        "grade": 0.9
     },
     {
         "name": "module2",
@@ -195,15 +197,17 @@
     {
         "name": "assignment_02.html",
         "folder": "assignments",
-        "type": "assignment",
-        "grading": "assignment",
+        "type": "assignments",
+        "grading": "assignments",
         "points": "10",
         "start_or_posted": "9/2/22",
         "end_or_due": "9/9/22",
         "module": "module2",
         "title": "Linear algebra review",
         "reference": "na",
-	"student-group": null
+	    "student-group": null,
+        "submitted": false,
+        "grade": 1
     },
     {
         "name": "module3",
@@ -316,15 +320,17 @@
     {
         "name": "assignment_03.html",
         "folder": "assignments",
-        "type": "assignment",
-        "grading": "assignment",
+        "type": "assignments",
+        "grading": "assignments",
         "points": "10",
         "start_or_posted": "9/9/22",
         "end_or_due": "9/26/22",
         "module": "module3",
         "title": "Rasterization exercise",
         "reference": "na",
-	"student-group": null
+	    "student-group": null,
+        "submitted": false,
+        "grade": 0.95
     },
     {
         "name": "module4",
@@ -425,15 +431,17 @@
     {
         "name": "assignment_04.html",
         "folder": "assignments",
-        "type": "assignment",
-        "grading": "assignment",
+        "type": "assignments",
+        "grading": "assignments",
         "points": "10",
         "start_or_posted": "9/16/22",
         "end_or_due": "9/23/22",
         "module": "module4",
         "title": "Transformations exercise",
         "reference": "na",
-	"student-group": null
+	    "student-group": null,
+        "submitted": false,
+        "grade": 0.80
     },
     {
         "name": "module5",
@@ -486,15 +494,17 @@
     {
         "name": "assignment_05.html",
         "folder": "assignments",
-        "type": "assignment",
-        "grading": "assignment",
+        "type": "assignments",
+        "grading": "assignments",
         "points": "10",
         "start_or_posted": "9/23/22",
         "end_or_due": "9/30/22",
         "module": "module5",
         "title": "Projection exercises",
         "reference": "na",
-	"student-group": null
+	    "student-group": null,
+        "submitted": false,
+        "grade": 0.97
     },
     {
         "name": "module6",
@@ -547,15 +557,17 @@
     {
         "name": "assignment_06.html",
         "folder": "assignments",
-        "type": "assignment",
-        "grading": "assignment",
+        "type": "assignments",
+        "grading": "assignments",
         "points": "10",
         "start_or_posted": "9/30/22",
         "end_or_due": "10/5/22",
         "module": "module5",
         "title": "Texture mapping exercises",
         "reference": "na",
-	"student-group": null
+	    "student-group": null,
+        "submitted": false,
+        "grade": 0.82
     },
     {
         "name": "module7",
@@ -596,15 +608,17 @@
     {
         "name": "assignment_07.html",
         "folder": "assignments",
-        "type": "assignment",
-        "grading": "assignment",
+        "type": "assignments",
+        "grading": "assignments",
         "points": "10",
         "start_or_posted": "10/5/22",
         "end_or_due": "10/14/22",
         "module": "na",
         "title": "Color",
         "reference": "na",
-	"student-group": null
+	    "student-group": null,
+        "submitted": false,
+        "grade": null
     },
     {
         "name": "module8",
@@ -645,15 +659,17 @@
     {
         "name": "assignment08.html",
         "folder": "assignments",
-        "type": "assignment",
-        "grading": "assignment",
+        "type": "assignments",
+        "grading": "assignments",
         "points": "10",
         "start_or_posted": "10/14/22",
         "end_or_due": "10/26/22",
         "module": "module8",
         "title": "Light and shadow",
         "reference": "na",
-	"student-group": null
+	    "student-group": null,
+        "submitted": false,
+        "grade": null
     },
     {
         "name": "midterm.html",
@@ -665,6 +681,9 @@
         "end_or_due": "10/26/22",
         "module": "module8",
         "title": "Midterm exam",
-        "reference": "na"
+        "reference": "na",
+        "student-group": null,
+        "submitted": false,
+        "grade": null
     }
 ]

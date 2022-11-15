@@ -62,15 +62,17 @@
     {
         "name": "assignment_01.html",
         "folder": "assignments",
-        "type": "assignment",
-        "grading": "assignment",
+        "type": "assignments",
+        "grading": "assignments",
         "points": "10",
         "start_or_posted": "8/15/22",
         "end_or_due": "8/29/22",
         "module": "module1",
         "title": "Getting to know you",
         "reference": "na",
-	"student-group": null
+	    "student-group": null,
+        "submitted": false,
+        "grade": 1
     },
     {
         "name": "module2",
@@ -218,28 +220,32 @@
     {
         "name": "assignment_02.html",
         "folder": "assignments",
-        "type": "assignment",
-        "grading": "assignment",
+        "type": "assignments",
+        "grading": "assignments",
         "points": "10",
         "start_or_posted": "9/7/22",
         "end_or_due": "9/16/22",
         "module": "module3",
         "title": "Sketching practice",
         "reference": "inclass_01.html,inclass_02.html,inclass_03.html,inclass_04.html",
-	"student-group": null
+	    "student-group": null,
+        "submitted": false,
+        "grade": 0.95
     },
     {
         "name": "assignment_03.html",
         "folder": "assignments",
-        "type": "assignment",
-        "grading": "assignment",
+        "type": "assignments",
+        "grading": "assignments",
         "points": "10",
         "start_or_posted": "9/9/22",
         "end_or_due": "9/26/22",
         "module": "module3",
         "title": "Project 1 check in",
         "reference": "project1.html",
-	"student-group": null
+	    "student-group": null,
+        "submitted": false,
+        "grade": 1
     },
     {
         "name": "module4",
@@ -354,15 +360,17 @@
     {
         "name": "assignment_04.html",
         "folder": "assignments",
-        "type": "assignment",
-        "grading": "assignment",
+        "type": "assignments",
+        "grading": "assignments",
         "points": "10",
         "start_or_posted": "9/16/22",
         "end_or_due": "9/23/22",
         "module": "module4",
         "title": "Html and CSS practice",
         "reference": "inclass_05.html,inclass_06.html,inclass_07.html",
-	"student-group": null
+	    "student-group": null,
+        "submitted": false,
+        "grade": 0.90
     },
     {
         "name": "module5",
@@ -476,27 +484,31 @@
     {
         "name": "assignment_05.html",
         "folder": "assignments",
-        "type": "assignment",
-        "grading": "assignment",
+        "type": "assignments",
+        "grading": "assignments",
         "points": "10",
         "start_or_posted": "9/23/22",
         "end_or_due": "9/30/22",
         "module": "module5",
         "title": "Javascript practice",
         "reference": "inclass_08.html,inclass_09.html,inclass_10.html",
-	"student-group": null
+	    "student-group": null,
+        "submitted": false,
+        "grade": 0.85
     },
     {
         "name": "assignment_06.html",
         "folder": "assignments",
-        "type": "assignment",
-        "grading": "assignment",
+        "type": "assignments",
+        "grading": "assignments",
         "points": "10",
         "start_or_posted": "9/19/22",
         "end_or_due": "9/23/22",
         "module": "na",
         "title": "Which smart object project 1",
-	"student-group": null
+	    "student-group": null,
+        "submitted": false,
+        "grade": 1
     },
     {
         "name": "module6",
@@ -631,27 +643,31 @@
     {
         "name": "07.html",
         "folder": "assignments",
-        "type": "project",
-        "grading": "project",
+        "type": "projects",
+        "grading": "projects",
         "points": "50",
         "start_or_posted": "9/7/22",
         "end_or_due": "10/14/22",
         "module": "na",
         "title": "Project 1 implementation",
         "reference": "project1.html,assignment_03.html",
-	"student-group": null
+	    "student-group": null,
+        "submitted": false,
+        "grade": null
     },
     {
         "name": "08.html",
         "folder": "assignments",
-        "type": "project",
-        "grading": "project",
+        "type": "projects",
+        "grading": "projects",
         "points": "40",
         "start_or_posted": "9/7/22",
         "end_or_due": "10/16/22",
         "module": "na",
         "title": "Project 1 documentation",
         "reference": "project1.html,assignment_03.html,07.html",
-	"student-group": null
+	    "student-group": null,
+        "submitted": false,
+        "grade": null
     }
 ]

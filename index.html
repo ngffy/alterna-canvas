@@ -70,12 +70,29 @@
                 </header>
 
                 <section class="card-body y-overflow">
-                  <ol>
-                    <li>Assignment 1</li>
-                    <li>Assignment 2</li>
-                    <li>Assignment 3</li>
-                    <li>Assignment 4</li>
-                  </ol>
+                  <table class="table dark-bg">
+                    <thead>
+                      <tr>
+                        <th>Title</th>
+                        <th>Due</th>
+                      </tr>
+                    </thead>
+
+                    <tbody id="upcoming-assignments">
+                      <tr>
+                        <td><a class="link-light" href="class-info.html" onclick="sessionStorage.setItem('selectedClass', 'Computer Graphics')">Color</a></td>
+                        <td>Oct 14</td>
+                      </tr>
+                      <tr>
+                        <td><a class="link-light" href="class-info.html" onclick="sessionStorage.setItem('selectedClass', 'UI')">Project 1 implementation</a></td>
+                        <td>Oct 14</td>
+                      </tr>
+                      <tr>
+                        <td><a class="link-light" href="class-info.html" onclick="sessionStorage.setItem('selectedClass', 'UI')">Project 1 documentation</a></td>
+                        <td>Oct 16</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </section>
               </section>
             </article>
@@ -89,60 +106,54 @@
                 <div class="cal-body card-body row text-center">
                   <div class="col d-flex flex-column day">
                     <h4 class="day-header">Mon 10</h4>
-                    <section class="day-info flex-fill past"></section>
+                    <section class="day-info flex-fill past" id="day0"></section>
                   </div>
                   <div class="col d-flex flex-column day">
                     <h4 class="day-header">Tues 11</h4>
-                    <section class="day-info flex-fill past"></section>
+                    <section class="day-info flex-fill past" id="day1"></section>
                   </div>
                   <div class="col d-flex flex-column day">
                     <h4 class="day-header">Wed 12</h4>
-                    <section class="day-info flex-fill past"></section>
+                    <section class="day-info flex-fill past" id="day2"></section>
                   </div>
                   <div class="col d-flex flex-column day">
                     <h4 class="day-header">Thurs 13</h4>
-                    <section class="day-info flex-fill">
-                      <div class="card bg-light">
-                        <div class="card-body">
-                          Assignment 1
-                          <hr>
-                          11:59pm
-                        </div>
-                      </div>
-                      <div class="card bg-light">
-                        <div class="card-body complete">
-                          Assignment 2
-                          <hr>
-                          11:59pm
-                        </div>
-                      </div>
-                      <div class="card bg-light">
-                        <div class="card-body">
-                          Assignment 3
-                          <hr>
-                          11:59pm
-                        </div>
-                      </div>
-                      <div class="card bg-light">
-                        <div class="card-body">
-                          Assignment 4
-                          <hr>
-                          11:59pm
-                        </div>
-                      </div>
-                    </section>
+                    <section class="day-info flex-fill" id="day3"></section>
                   </div>
                   <div class="col d-flex flex-column day">
                     <h4 class="day-header">Fri 14</h4>
-                    <section class="day-info flex-fill"></section>
+                    <section class="day-info flex-fill" id="day4">
+                      <a class="card bg-light" href="class-info.html" onclick="sessionStorage.setItem('selectedClass', 'Computer Graphics')" id="event1">
+                        <div class="card-body">
+                          Color
+                          <hr>
+                          Computer Graphics
+                        </div>
+                      </a>
+                      <a class="card bg-light" href="class-info.html" onclick="sessionStorage.setItem('selectedClass', 'UI')" id="event2">
+                        <div class="card-body">
+                          Project 1 implementation
+                          <hr>
+                          UI
+                        </div>
+                      </a>
+                    </section>
                   </div>
                   <div class="col d-flex flex-column day">
                     <h4 class="day-header">Sat 15</h4>
-                    <section class="day-info flex-fill"></section>
+                    <section class="day-info flex-fill" id="day5"></section>
                   </div>
                   <div class="col d-flex flex-column day">
                     <h4 class="day-header">Sun 16</h4>
-                    <section class="day-info flex-fill"></section>
+                    <section class="day-info flex-fill" id="day6">
+                      <a class="card bg-light" href="class-info.html" onclick="sessionStorage.setItem('selectedClass', 'UI')" id="event3">
+                        <div class="card-body">
+                          Project 1 documentation
+                          <hr>
+                          UI
+                        </div>
+                      </a>
+                    </section>
                   </div>
                 </div>
 
@@ -151,16 +162,16 @@
                     <label for="btn-group" class="form-label">Display Classes:</label>
 
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="btn-group">
-                      <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio1" checked onclick="filterCal('All')">
                       <label class="btn btn-outline-light" for="btnradio1">All</label>
                     
-                      <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio2" onclick="filterCal('Computer Graphics')">
                       <label class="btn btn-outline-light" for="btnradio2">Computer Graphics</label>
                     
-                      <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio3" onclick="filterCal('Senior Design')">
                       <label class="btn btn-outline-light" for="btnradio3">Senior Design</label>
 
-                      <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio4" onclick="filterCal('UI')">
                       <label class="btn btn-outline-light" for="btnradio4">UI</label>
                     </div>
 
@@ -173,8 +184,8 @@
                 </div>
 
                 <div class="card-footer d-flex justify-content-between">
-                  <button class="btn btn-light">Prev Week</button>
-                  <button class="btn btn-light">Next Week</button>
+                  <button class="btn btn-light" onclick="window.alert('In real interface, this calendar would be interactive and allow for moving between weeks.')">Prev Week</button>
+                  <button class="btn btn-light" onclick="window.alert('In real interface, this calendar would be interactive and allow for moving between weeks.')">Next Week</button>
                 </div>
               </section>
             </article>
@@ -218,5 +229,7 @@
 
     <script src="js/nav.js"></script>
     <script src="js/to-do.js"></script>
+    <script src="js/calendar.js"></script>
+    <script src="js/class-info.js"></script>
   </body>
 </html>
