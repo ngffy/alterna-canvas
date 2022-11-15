@@ -258,17 +258,17 @@ async function displayAssignment(name) {
 	assignmentCard.appendChild(assignmentBody);
 
 	dueDate = document.createElement("section");
-	dueDate.classList.add("card", "card-body");
+	dueDate.classList.add("card", "card-body", "dark-bg");
 	dueDate.innerHTML = "<b>Due:</b> " + assignment["end_or_due"];
 	assignmentBody.appendChild(dueDate);
 
 	details = document.createElement("section");
-	details.classList.add("card", "card-body");
+	details.classList.add("card", "card-body", "dark-bg");
 	details.innerHTML = html;
 	assignmentBody.appendChild(details);
 
 	submissionCard = document.createElement("section");
-	submissionCard.classList.add("card");
+	submissionCard.classList.add("card", "dark-bg");
 	assignmentBody.appendChild(submissionCard);
 
 	submitHeader = document.createElement("header");
@@ -292,7 +292,7 @@ async function displayAssignment(name) {
 	submissionBody.appendChild(uploadButton);
 
 	submitButton = document.createElement("button");
-	submitButton.classList.add("btn", "btn-primary");
+	submitButton.classList.add("btn", "btn-light");
 	submitButton.innerHTML = "Submit";
 	submissionBody.appendChild(submitButton);
 
