@@ -80,8 +80,16 @@
 
                     <tbody id="upcoming-assignments">
                       <tr>
-                        <td><a class="link-light" onclick="">Assignment Name</a></td>
-                        <td>Oct 15 12:00 AM</td>
+                        <td><a class="link-light" href="class-info.html" onclick="sessionStorage.setItem('selectedClass', 'Computer Graphics')">Color</a></td>
+                        <td>Oct 14</td>
+                      </tr>
+                      <tr>
+                        <td><a class="link-light" href="class-info.html" onclick="sessionStorage.setItem('selectedClass', 'UI')">Project 1 implementation</a></td>
+                        <td>Oct 14</td>
+                      </tr>
+                      <tr>
+                        <td><a class="link-light" href="class-info.html" onclick="sessionStorage.setItem('selectedClass', 'UI')">Project 1 documentation</a></td>
+                        <td>Oct 16</td>
                       </tr>
                     </tbody>
                   </table>
@@ -119,13 +127,6 @@
                       <a class="card bg-light" href="class-info.html" onclick="sessionStorage.setItem('selectedClass', 'Computer Graphics')">
                         <div class="card-body">
                           Color
-                          <hr>
-                          Computer Graphics
-                        </div>
-                      </a>
-                      <a class="card bg-light" href="class-info.html" onclick="sessionStorage.setItem('selectedClass', 'Computer Graphics')">
-                        <div class="card-body">
-                          Light and Shadow
                           <hr>
                           Computer Graphics
                         </div>
@@ -230,5 +231,6 @@
     <script src="js/nav.js"></script>
     <script src="js/to-do.js"></script>
     <script src="js/calendar.js"></script>
+    <script src="js/class-info.js"></script>
   </body>
 </html>

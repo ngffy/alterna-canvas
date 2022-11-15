@@ -16,6 +16,7 @@ function initializePage() {
 
   if (page == "index.html") {
     sessionStorage.setItem("selectedClass", null);
+	return
   } else if (sessionStorage.getItem("selectedClass") !== null) {
     loadClass();
   }
@@ -53,6 +54,23 @@ async function displayClassHome() {
 	let item = JSON.parse(sessionStorage.getItem("announcements"))[0];
 	html = html.replace("announcementHere", `<h5>${item.title}</h5><b>${item.date} ${item.time}</b><p>${item.text}</p>`)
 
+	// Populate upcoming assignments
+	let assignment_list = JSON.parse(sessionStorage.getItem("all_assignments"));
+	let assignments = getUpcomingAssignments(assignment_list[getClassFolder()]);
+	let assignment_html = "";
+
+	for (let i = 0; i < assignments.length; i++) {
+		let item = assignments[i];
+		assignment_html += `<div class="card dark-bg"><div class="card-body"><h5 class="card-title">${item.title}</h5><div class="d-flex flex-row justify-content-between"><p><b>Due: </b>${item.end_or_due}</p><button class="btn btn-light" onclick="displayAssignment('${item.title}')">View</button></div></div></div>`
+	}
+
+	if (assignment_html == "") {
+		assignment_html = "No upcoming assignments within the week.";
+	}
+
+	html = html.replace("assignmentsHere", assignment_html);
+
+	html = html.replace("totalGradeHere", getTotalGrade());
 	
 	document.getElementById("main-content").innerHTML = html;
 	resetActiveNav("nav-home");
@@ -182,11 +200,15 @@ async function getAssignmentGroups() {
 	file = await fetch(path);
 	data = await file.json();
 
+	let assignment_types = Object.keys(JSON.parse(sessionStorage.getItem("class_weights"))).map(element => {
+		return element.toLowerCase();
+	  });
+
 	groups = {};
 
 	for (idx in data) {
 		obj = data[idx];
-		if (obj['type'] !== "assignment") {
+		if (!assignment_types.includes(obj.type)) {
 			continue;
 		}
 
@@ -203,9 +225,7 @@ async function getAssignmentGroups() {
 }
 
 async function displayAssignment(name) {
-	json_path = "course-data/" + getClassFolder() + "/data.txt";
-	file = await fetch(json_path);
-	data = await file.json();
+	data = JSON.parse(sessionStorage.getItem("all_assignments"))[getClassFolder()]
 
 	for (idx in data) {
 		if (data[idx]['title'] === name) {
@@ -213,6 +233,8 @@ async function displayAssignment(name) {
 			break;
 		}
 	}
+
+	console.log(assignment)
 
 	let path = "course-data/" + getClassFolder() + "/" + assignment['folder'] + "/" + assignment["name"];
 
@@ -426,9 +448,6 @@ function loadClass() {
   // Retrieve and store class data for modules
   constructModules();
 
-  // Retrieve and store assignment info for class
-  getClassAssignments()
-
   // Retrieve and store grading info for class
   getGradeWeighting();
 
@@ -442,9 +461,20 @@ async function getAllAssignments() {
 
 	for (let i = 0; i < 3; i++){
 		let cur_class = classes[i];
-		let path = "course-data/" + cur_class + "/data.txt";
+		console.log(cur_class)
 
+		// Get grade weighting
+		let path = 'course-data/' + cur_class + "/course_info/grading.json";
 		let file = await fetch(path);
+	
+		let weighting = await file.json();
+		let assignment_types = Object.keys(weighting).map(element => {
+			return element.toLowerCase();
+		});
+
+		path = "course-data/" + cur_class + "/data.txt";
+
+		file = await fetch(path);
 		let class_data = await file.json();
 
 		let assignments = []
@@ -452,7 +482,7 @@ async function getAllAssignments() {
 		for (let j = 0; j < class_data.length; j++){
 			let item = class_data[j];
 
-			if (item.type == "assignment") {
+			if (assignment_types.includes(item.type)) {
 				assignments.push(item);
 			}
 		}
@@ -472,25 +502,6 @@ async function getAnnouncements() {
 	sessionStorage.setItem("announcements", JSON.stringify(announcements));
 }
 
-function getClassAssignments() {
-	let module_data = JSON.parse(sessionStorage.getItem("module_data"));
-
-	let assignments = [];
-
-	// Iterate through modules to get all assignments from m
-	for (let i = 0; i < Object.keys(module_data).length; i++){
-		let mod = Object.keys(module_data)[i];
-		for (let j = 0; j < module_data[mod]["files"].length; j++){
-			let item = module_data[mod]["files"][j];
-			if (item.type == "assignment"){
-				assignments.push(item);
-			}
-		}
-	}
-
-	sessionStorage.setItem("class_assignments", JSON.stringify(assignments));
-}
-
 function getClassFolder() {
 	let className = sessionStorage.getItem("selectedClass");
 	return className.toLowerCase().replace(" ", "_");
@@ -506,17 +517,80 @@ async function getGradeWeighting() {
 	sessionStorage.setItem("class_weights", JSON.stringify(weighting));
 }
 
+function getTotalGrade(){
+	let grades = {"Computer Graphics": "92%",
+				  "Senior Design": "90%",
+				  "UI": "97%"}
+
+	return grades[sessionStorage.getItem("selectedClass")]
+}
+
+function getUpcomingAssignments(a_list) {
+	// Function finds all upcoming assignments within one week of start date
+	let cur_date = new Date('10/13/2022');
+	let assignments = [];
+
+	for (let i = 0; i < a_list.length; i++) {
+		let assignment = a_list[i];
+		let check_date = new Date(assignment.end_or_due);
+		let dif_days = Math.ceil((check_date - cur_date) / (1000 * 60 * 60 * 24));
+
+		if (dif_days <= 7 && dif_days >= 0) {
+			assignments.push(assignment);
+		}
+	}
+
+	return assignments
+}
+
 function createGradeGroups(html, weights) {
-	groups_html = "";
+	let groups_html = "";
+	let assignments = JSON.parse(sessionStorage.getItem("all_assignments"))[getClassFolder()]
+	let total_grade = 0;
 
 	for (let i = 0; i < Object.keys(weights).length; i++){
 		let key = Object.keys(weights)[i];
-		let group_card = `<section class="card"><header class="card-header"><h3>${key}</h3></header><section class="card-body"><table class="table dark-bg"><thead><tr><th>Assignment Name</th><th>Grade</th></tr></thead><tbody></tbody></table></section></section>`
+		let group_card = `<section class="card"><header class="card-header"><h3>${key}</h3></header><section class="card-body"><table class="table dark-bg"><thead><tr><th>Assignment Name</th><th>Grade</th></tr></thead><tbody>itemsHere</tbody></table></section></section>`
 
 		// TODO: put assignments in card
+		let assignment_html = "";
+		let total_points = 0;
+		let points_available = 0;
+		let check_key = key.toLowerCase()
+		for (let j = 0; j < assignments.length; j++) {
+			let item = assignments[j];
 
+			console.log(item.grading, check_key)
+			if (item.grade !== null && item.grading == check_key) {
+				assignment_html += `<tr><td>${item.title}</td><td>${Math.round(item.grade * 100)}%</td></tr>`;
+				console.log(item.title, item.grade, item.points)
+				points_available += Number(item.points);
+				total_points += Math.round(item.grade * item.points);
+			}
+		}
+
+		let grade = "n/a";
+		if (points_available != 0) {
+			grade = Math.round(total_points / points_available * 100);
+			// total_grade += Math.round(weights[key] * grade);
+			total_grade = grade;
+			console.log(total_points, points_available, grade, total_grade, weights[key])
+			grade += "%"
+		}
+
+		console.log(total_grade)
+		html = html.replace(`weightHere${key}`, grade)
+
+		if (assignment_html == "") {
+			group_card = `<section class="card"><header class="card-header"><h3>${key}</h3></header><section class="card-body">Nothing has been graded in this section yet.</section></section>`;
+		}
+
+		group_card = group_card.replace("itemsHere", assignment_html);
 		groups_html += group_card;
 	}
+
+	console.log(total_grade)
+	html = html.replace("totalGradeHere", total_grade + "%")
 
 	return html.replace("groupsHere", groups_html)
 }
@@ -528,7 +602,7 @@ function updateWeights(html, weights) {
 		let key = Object.keys(weights)[i];
 		let value = Math.round(weights[key] * 100);
 
-		weight_html += `<tr><td>${key}</td><td>${value}%</td><td>100%</td></tr>`;
+		weight_html += `<tr><td>${key}</td><td>${value}%</td><td>weightHere${key}</td></tr>`;
 	}
 
 	return html.replace("weightsHere", weight_html)

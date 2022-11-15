@@ -1,4 +1,5 @@
-initCalendar(['computer_graphics', 'senior_design', 'ui']);
+var cur_date = new Date("10/13/2022");
+// initCalendar(['computer_graphics', 'senior_design', 'ui']);
 
 function initCalendar(classes){
     let assignments = JSON.parse(sessionStorage.getItem("all_assignments"));
@@ -21,7 +22,6 @@ function addCalItem(html, item){
                     "10/14/22": "day4",
                     "10/15/22": "day5",
                     "10/16/22": "day6",}
-
 
 
     let cal_item = `<div class="card bg-light"><div class="card-body">${item.title}<hr>11:59pm</div></div>`;
