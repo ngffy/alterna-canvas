@@ -377,7 +377,11 @@ async function displayClassModule(mod_num) {
 
 		let btn = "";
 		if (item.name.endsWith(".html")){
-			btn = `<button class="btn btn-light" onclick="displayModuleItem(${mod_num}, ${i})" style="width:100%">View</button>`;
+			if (item.type == "inclass"){
+				btn = `<button class="btn btn-light" onclick="displayModuleItem(${mod_num}, ${i})" style="width:100%">View</button>`;
+			} else {
+				btn = `<button class="btn btn-light" onclick="displayAssignment('${item.title}')" style="width:100%">View</button>`;
+			}
 		} else {
 			let path = `course-data/${getClassFolder()}/${item.folder}/${item.name}`;
 			btn = `<a class="btn btn-light" href=${path} download" style="width:100%">Download</a>`;
