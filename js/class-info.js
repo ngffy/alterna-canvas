@@ -134,12 +134,12 @@ async function updateAssignmentGroup(name, newGroup) {
 	}
 }
 
-function updateAssignmentGroup(assignmentRow, id) {
-	console.log(id);
+function updateAssignmentRowId(assignmentRow, id) {
 	assignmentRow.id = id;
 
-	for (child in assignmentRow.children) {
-		if (child.nodeName === "div") {
+	for (idx in assignmentRow.childNodes) {
+		child = assignmentRow.childNodes[idx];
+		if (child.nodeName === "DIV") {
 			updateAssignmentGroup(child.id, id);
 		}
 	}
@@ -153,19 +153,19 @@ function addGroup(name) {
 	header.classList.add("card-header")
 	assignmentGroup.appendChild(header);
 
-	h = document.createElement("h3");
+	let h = document.createElement("h3");
 	h.setAttribute("contenteditable", "true");
 	h.innerHTML = name;
 	header.appendChild(h);
 
-	assignmentRow = document.createElement("section");
+	let assignmentRow = document.createElement("section");
 	assignmentRow.classList.add("card-body", "row", "assignment-row");
 	assignmentRow.id = name;
 	assignmentRow.addEventListener("drop", (ev) => dropHandler(ev));
 	assignmentRow.addEventListener("dragover", (ev) => dragoverHandler(ev));
 	assignmentGroup.appendChild(assignmentRow);
 
-	h.addEventListener("input", (e) => updateAssignmentGroup(assignmentRow, h.innerHTML));
+	h.addEventListener("input", (e) => updateAssignmentRowId(assignmentRow, h.innerHTML));
 
 	assignmentGroupDiv = document.getElementById("groups");
 	assignmentGroupDiv.appendChild(assignmentGroup);
